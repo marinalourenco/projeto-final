@@ -1,11 +1,16 @@
-import React from 'react';
+import NF404 from '../../assets/404.svg';
 
-// import { Container } from './styles';
+import * as S from "./styles";
 
-function NotFound() {
-  return (
-      <div>NotFound</div>
-  );
-}
+const NotFound = () => {
+	return (
+		<S.Container>
+			<S.Content>
+            <img src={NF404} alt="Not Found"/>
+            <S.BotaoVoltar type="button"><h1>Voltar</h1></S.BotaoVoltar>
+			</S.Content>
+		</S.Container>
+	);
+};
 
-export default NotFound;
+export default NotFound

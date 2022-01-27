@@ -1,7 +1,7 @@
 export const mixins = {
     colors: {
       background: '#F3F3F3',
-      primary: '#FFCB05',
+      primary: '#ff4365',
       secondary: '#004278',
       green: '#05D733',
       white: '#FFFFFF',
