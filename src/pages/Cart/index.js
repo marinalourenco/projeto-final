@@ -1,10 +1,9 @@
 import React from 'react';
-
-// import { Container } from './styles';
+import CartTable from '../../components/CartTable'
 
 function Cart() {
   return (
-      <div>Cart</div>
+      <CartTable />
   );
 }
 
