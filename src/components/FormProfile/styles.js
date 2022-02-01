@@ -81,7 +81,7 @@ export const Button = styled.button`
       background: ${mixins.colors.secondary};
       color: ${mixins.colors.primary};
       filter: brightness(0.8);
-
+  }
 `;
 
 export const Select = styled.select`

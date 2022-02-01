@@ -2,6 +2,7 @@ import { FaUser, FaShoppingCart } from 'react-icons/fa';
 import { User } from './styles';
 import { useCart } from '../../hooks/useCart';
 import { Link } from 'react-router-dom';
+import Logo from "../../assets/logo.png"
 
 export function Header({ onOpenNewRegisterModal, onOpenLoginModal }) {
     const { cart } = useCart();
@@ -10,7 +11,11 @@ export function Header({ onOpenNewRegisterModal, onOpenLoginModal }) {
     return (
       <User>
         <div className="blue">
+          
           <div className="div">
+            <Link to="/">
+            <img src={Logo} alt="pokestore" />
+            </Link>
             <label>
               <input type="text" placeholder="Pesquisar" />
             </label>

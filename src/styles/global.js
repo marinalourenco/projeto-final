@@ -21,6 +21,7 @@ export const GlobalStyle = createGlobalStyle`
     }
   }
   body, input, textarea {
+    padding-top: 100px;
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
   }
@@ -68,5 +69,18 @@ export const GlobalStyle = createGlobalStyle`
     &:hover {
       filter: brightness(0.8)
     }
+  }
+  .accordion{
+    padding: 0 100px;
+    .accordion-header{
+      .accordion-button[aria-expanded="true"]{
+        background-color: ${mixins.colors.primary};
+        color: ${mixins.colors.secondary};
+      }
+      .accordion-button[aria-expanded="false"] {
+          background-color: ${mixins.colors.secondary};
+          color: #fff;
+      }
+  }
   }
 `;

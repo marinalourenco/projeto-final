@@ -1,5 +1,6 @@
 import React from 'react';
-import CarrouselPokemon from '../../components/Carrousel';
+import CarrouselDepoimento from '../../components/AccordionDepoimento';
+import CarrouselPokemon from '../../components/CarrouselPokemon';
 import ModalPokemon from '../../components/ModalPokemon';
 import Shopping from '../../components/Shopping'
 // import { Container } from './styles';
@@ -9,6 +10,7 @@ function Home() {
   <React.Fragment>
     <CarrouselPokemon />
     <Shopping />
+    <CarrouselDepoimento />
     <ModalPokemon />
   </React.Fragment>
   );
