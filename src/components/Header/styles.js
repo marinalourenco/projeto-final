@@ -6,7 +6,7 @@ import Lupa from '../../assets/lupa.svg';
 export const User = styled.div`
 background: ${mixins.colors.primary};
 width: 100%;
-height: 58px;
+height: 100px;
 display: flex;
 align-items: center;
 justify-content: space-around;
@@ -94,7 +94,6 @@ justify-content: space-around;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0;
     margin-left: 1rem;
     color: ${mixins.colors.background};
     @media(max-width: 750px) {
@@ -112,6 +111,7 @@ justify-content: space-around;
       margin-left: 0.5rem;
     }
     .shop{
+      margin-top: 15px;
       font-weight: 700;
       margin-left: 0.3rem;
     }

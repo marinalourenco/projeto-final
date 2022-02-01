@@ -55,7 +55,7 @@ export default function Shooping() {
                 <p className="value">{pokecard.price}</p>
                 <p className="valuesec">,00</p>
               </div>
-              <button className="car" type="submit" onClick={() => handleAddProduct(pokecard.id)}>ADICIONAR AO CARRINHO</button> 
+              <button className="car" type="submit" onClick={() => {}}>VER DETALHES</button> 
             </Card>
             ))}
           </Grid>

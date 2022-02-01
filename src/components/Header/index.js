@@ -1,6 +1,7 @@
 import { FaUser, FaShoppingCart } from 'react-icons/fa';
 import { User } from './styles';
 import { useCart } from '../../hooks/useCart';
+import { Link } from 'react-router-dom';
 
 export function Header({ onOpenNewRegisterModal, onOpenLoginModal }) {
     const { cart } = useCart();
@@ -27,7 +28,7 @@ export function Header({ onOpenNewRegisterModal, onOpenLoginModal }) {
             </div>
   
             <span className="car">
-              <FaShoppingCart /> <a className="cart" href="/cart"> Seu carrinho tem <p className="shop">{cartSize === 1 ? `${cartSize} item` : `${cartSize} itens`}</p></a>
+              <FaShoppingCart /> <Link className="cart" to="/cart"> Seu carrinho tem <p className="shop">{cartSize === 1 ? `${cartSize} item` : `${cartSize} itens`}</p></Link>
             </span>
           </div>
         </div>
