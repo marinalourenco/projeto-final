@@ -2,12 +2,14 @@ import { Card, Container, Content, Grid } from './styles';
 import { useEffect, useState } from 'react';
 import { api } from '../../services/api';
 import { useCart } from '../../hooks/useCart';
+import { useModal } from '../../hooks/useModal';
 
 export default function Shooping() { 
   const [ pokeCard, setPokeCard ] = useState([])
   const [ currentPage, setCurrentPage ] = useState(1);
   const [products, setProducts] = useState([]);
   const { addProduct, cart } = useCart();
+  const { handleOpenDetailModal } = useModal()
 
   function handleAddProduct(id) {
     addProduct(id);
@@ -39,7 +41,7 @@ export default function Shooping() {
         <Content>
           <Grid>
           { pokeCard.map(pokecard => (
-            <Card key={pokecard.id}>
+            <Card key={pokecard.id} onClick={() => handleOpenDetailModal(pokecard)}>
               <div className="img">
                 <img src={`images/${pokecard.id}.gif`} alt={pokecard.name} />
               </div>

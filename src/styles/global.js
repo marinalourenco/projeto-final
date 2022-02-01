@@ -49,6 +49,14 @@ export const GlobalStyle = createGlobalStyle`
     padding: 3rem;
     position: relative;
     border-radius: 0.25rem; 
+    
+  }
+  .react-modal-content-description{
+    width: 100%;
+    max-width: 456px;
+    background: transparent;
+    position: relative;
+    border-radius: 0.25rem; 
   }
   .btnClose {
     position: absolute;
