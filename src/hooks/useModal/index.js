@@ -1,10 +1,15 @@
 import { createContext, useCallback, useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useCart } from '../useCart';
 
 const ModalContext = createContext({});
 
 export function ModalProvider({ children }) {
+ const navigate = useNavigate()
+ const { removeAllProduct } = useCart();
  const [loginModal, setLoginModal] = useState(false) 
  const [detailModal, setDetailModal] = useState({}) 
+ const [completeModal, setCompleteModal] = useState(false) 
 
  const handleOpenLoginModal = useCallback(()=>{
      setLoginModal(true)
@@ -21,6 +26,16 @@ const handleOpenDetailModal = useCallback((pokemon)=>{
 const handleCloseDetailModal = useCallback(()=>{
    setDetailModal({})
 },[])
+
+const handleOpenCompleteModal = useCallback(()=>{
+    setCompleteModal(true)
+},[])
+
+const handleCloseCompleteModal = useCallback(()=>{
+   setCompleteModal(false)
+   removeAllProduct()
+   navigate("/")
+},[navigate, removeAllProduct])
  
  
   return (
@@ -32,6 +47,9 @@ const handleCloseDetailModal = useCallback(()=>{
           detailModal,
           handleOpenDetailModal ,
           handleCloseDetailModal,
+          completeModal,
+          handleOpenCompleteModal,
+          handleCloseCompleteModal,
         }}
     >
       { children }

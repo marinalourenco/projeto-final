@@ -4,11 +4,13 @@ import { ModalProvider } from './useModal';
 
 function AppProvider({ children }) {
   return (
-    <ModalProvider>
+    
       <CartProvider>
+        <ModalProvider>
         { children }
+        </ModalProvider>
         </CartProvider>
-    </ModalProvider>
+
   );
 }
 
