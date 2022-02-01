@@ -2,15 +2,19 @@ import { Container, Content, Title, ButtonPrimario, ButtonSecundario, DivCompra,
 import Table from 'react-bootstrap/Table'
 import { formatPrice } from '../../utils/format';
 import { useCart } from '../../hooks/useCart';
+import { useModal } from '../../hooks/useModal';
 import {
     MdDelete,
     MdAddCircleOutline,
     MdRemoveCircleOutline,
   } from 'react-icons/md';
+import { useNavigate } from 'react-router-dom';
 
 
 const CartTable = () => {
-    const { cart, removeProduct, updateProductAmount } = useCart();
+    const navigate = useNavigate();
+    const { cart, removeProduct, updateProductAmount, removeAllProduct } = useCart();
+    const { handleOpenCompleteModal } = useModal()
 
     const cartFormatted = cart.map(product => ({
         ...product, priceFormatted: formatPrice(product.price), subtotal: formatPrice(product.price * product.amount)
@@ -112,13 +116,13 @@ const CartTable = () => {
                         </tbody>
                     </Table>
                 </Content>
-                    <ButtonPrimario >Continuar Comprando</ButtonPrimario>
-                    <ButtonSecundario >Cancelar Compra</ButtonSecundario>
+                    <ButtonPrimario onClick={() => navigate("/")} >Continuar Comprando</ButtonPrimario>
+                    <ButtonSecundario onClick={removeAllProduct} >Cancelar Compra</ButtonSecundario>
                     <ContainerCepCompra>
                         
                         <DivCompra>
                             <h3>valor total: {total}</h3>
-                            <button>Finalizar Compra</button>
+                            <button onClick={handleOpenCompleteModal} disabled={cartFormatted.length < 1 }>Finalizar Compra</button>
                         </DivCompra>
                     </ContainerCepCompra>
                        

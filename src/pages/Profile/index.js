@@ -1,11 +1,7 @@
-import React from 'react';
-
-// import { Container } from './styles';
+import MyProfile from "../../components/MyProfile";
 
 function Profile() {
-  return (
-      <div>Profile</div>
-  );
+   return <MyProfile />
 }
 
 export default Profile;

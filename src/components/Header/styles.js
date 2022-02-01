@@ -6,10 +6,13 @@ import Lupa from '../../assets/lupa.svg';
 export const User = styled.div`
 background: ${mixins.colors.primary};
 width: 100%;
-height: 58px;
+height: 100px;
 display: flex;
 align-items: center;
 justify-content: space-around;
+position: fixed;
+top:0;
+z-index:1;
 @media(max-width: 1080px) {
   height: 116px;
 }
@@ -25,6 +28,7 @@ justify-content: space-around;
   align-items: center;
   justify-content: space-between;
   width: 1350px;
+  
   @media(max-width: 1366px) {
     width: 1000px;
   }
@@ -40,7 +44,13 @@ justify-content: space-around;
   }
   
   .div {
+    img{
+    width: 85px;
+    border-radius: 15px;
+    margin-right: 15px;
+     }
     display: flex;
+    align-items: center;
     label {
       position: relative;
     }
@@ -50,7 +60,7 @@ justify-content: space-around;
       left: 1rem;
       top: 0.7rem;
       bottom: 0;
-      width: 20px;
+      width: 30px;
       background: url(${Lupa}) no-repeat;
     }
     input {
@@ -94,7 +104,6 @@ justify-content: space-around;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0;
     margin-left: 1rem;
     color: ${mixins.colors.background};
     @media(max-width: 750px) {
@@ -112,6 +121,7 @@ justify-content: space-around;
       margin-left: 0.5rem;
     }
     .shop{
+      margin-top: 15px;
       font-weight: 700;
       margin-left: 0.3rem;
     }

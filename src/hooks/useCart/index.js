@@ -1,10 +1,12 @@
 import { createContext, useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { api } from '../../services/api';
 
 const CartContext = createContext({});
 
 export function CartProvider({ children }) {
+  const navigate = useNavigate()
   const [cart, setCart] = useState(() => {
     const storagedCart = localStorage.getItem('@PokeMercadoLivre:cart')
 
@@ -60,6 +62,18 @@ export function CartProvider({ children }) {
       const updatedCart = cart.filter(cartItem => cartItem.id !== productId)
       setCart(updatedCart)
       localStorage.setItem('@PokeMercadoLivre:cart', JSON.stringify(updatedCart))
+      toast("produtos removido com sucesso");
+    } catch {
+      toast.error('Erro na remoção do produto');
+    }
+  };
+
+  const removeAllProduct = (productId) => {
+    try {
+      setCart([])
+      localStorage.setItem('@PokeMercadoLivre:cart', JSON.stringify([]))
+      navigate("/")
+      toast('Todos os produtos foram removidos');
     } catch {
       toast.error('Erro na remoção do produto');
     }
@@ -100,7 +114,7 @@ export function CartProvider({ children }) {
 
   return (
     <CartContext.Provider
-      value={{ cart, addProduct, removeProduct, updateProductAmount }}
+      value={{ cart, addProduct, removeProduct, updateProductAmount, removeAllProduct }}
     >
       { children }
     </CartContext.Provider>

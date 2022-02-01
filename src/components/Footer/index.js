@@ -12,11 +12,8 @@ export const Footer = () => {
 		<Container>
 			<Content>
 				<Column>
-					PokeMercadoLivre
-				</Column>
-				<Column>
 					<Title>Sobre</Title>
-					<FooterLink href="#">A PokeStore</FooterLink>
+					<FooterLink href="#">A Pokemon Store</FooterLink>
 					<FooterLink href="#">Missão</FooterLink>
 					<FooterLink href="#">Visão</FooterLink>
 				</Column>
@@ -29,9 +26,9 @@ export const Footer = () => {
 				</Column>
 				<Column>
 					<Title>Contato</Title>
-					<FooterLink href="#">(81) 2101-1111</FooterLink>
-					<FooterLink href="#">contato@pokeshop.com</FooterLink>
-					<FooterLink href="#">Rua B, Nº 02, Viridian, Kanto.</FooterLink>
+					<FooterLink href="#">(99) 99999-9999</FooterLink>
+					<FooterLink href="#">contato@pokemonstore.com</FooterLink>
+					<FooterLink href="#">Avenida Arceus, nº 111, Saffron, Kanto.</FooterLink>
 				</Column>
 				<Column>
 					<Title>Social Media</Title>
