@@ -3,7 +3,6 @@ import FormProfile from '../FormProfile';
 import ImageProfile from '../ImageProfile';
 import { Container, Card } from './styles';
 
-
 function MyProfile() {
   return (
       <Container>

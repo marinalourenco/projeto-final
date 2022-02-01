@@ -16,6 +16,7 @@ export const Title = styled.h1`
   font-style: normal;
   font-weight: bold;
   font-size: 26px;
+  font-family: 'Poppins', sans-serif;
   line-height: 54px;
   color: ${mixins.colors.secondary};
 `;
@@ -65,17 +66,22 @@ export const Input = styled.input`
 `;
 
 export const Button = styled.button`
-  width: 8em;
+  width: 10em;
   margin: 0;
-  padding: 15px;
-  border-radius: 0.25em;
-  border-width: 1px;
-  border-color: ${mixins.colors.darkGray};
-  font-style: normal;
-  font-weight: bold;
-  font-size: 16px;
-  background-color: ${props => props.isLight ? mixins.colors.darkGray : mixins.colors.white};
-  color: ${props => props.isLight ? mixins.colors.white : mixins.colors.darkGray};
+  padding: 20px;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 800;
+  transition: filter 0.2s;
+  
+  background-color: ${props => props.isLight ? mixins.colors.primary : mixins.colors.secondary};
+  color: ${props => props.isLight ? mixins.colors.secondary : mixins.colors.primary};
+  :hover{
+      background: ${mixins.colors.secondary};
+      color: ${mixins.colors.primary};
+      filter: brightness(0.8);
+
 `;
 
 export const Select = styled.select`

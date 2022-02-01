@@ -53,8 +53,8 @@ function FormProfile() {
                     </Column>
                 </Row>
                 <Row>
-                    <Button type="submit" isLight >Salvar</Button>
-                    <Button onClick={returnButton}>Voltar</Button>
+                    <Button type="submit" isLight >SALVAR</Button>
+                    <Button onClick={returnButton}>CANCELAR</Button>
                 </Row>
             </Form>
        </Container>

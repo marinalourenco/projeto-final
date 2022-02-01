@@ -10,8 +10,8 @@ export const mixins = {
       gray2: '#CCCCCC',
       gray3: '#F0F0F0',
       gray4: '#717171',
-      darkGray: '#292929'
     },
+    
     fonts: {
       regular: 'Poppins-Regular', 
       medium: 'Poppins-Medium', 
