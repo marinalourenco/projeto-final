@@ -2,7 +2,6 @@ import Modal from 'react-modal';
 import { GrClose } from 'react-icons/gr'
 import { Container } from './styles';
 import { useModal } from '../../hooks/useModal';
-import { useCart } from '../../hooks/useCart';
 
 
 export default function ModalComplete() {

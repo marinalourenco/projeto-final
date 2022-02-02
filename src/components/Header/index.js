@@ -32,13 +32,8 @@ export function Header() {
               <FaUser className="FaUser"/> Faça seu <button type="button" 
                 onClick={handleOpenLoginModal}
               >
-<<<<<<< HEAD
-              </button> Login <button type="button" onClick={onOpenNewRegisterModal}>
-              </button> ou <button type="button" onClick={onOpenNewRegisterModal}>
-=======
                 Login
               </button> ou <button type="button" onClick={() => navigate("/profile")}>
->>>>>>> d35a7a65f0f75fcd701400b648f24337aff51363
                 Cadastre-se
               </button>
             </div>

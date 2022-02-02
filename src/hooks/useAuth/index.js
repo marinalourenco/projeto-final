@@ -7,7 +7,7 @@ export const AuthContext = createContext({});
 
 export function AuthProvider ({ children }){
   const [auth, setAuth] = useState(() => {
-    const token = sessionStorage.getItem('@PokeStore_login');
+    const token = sessionStorage.getItem('@PokeMercadoLivre:login');
     if (token) {
       setAuth(token);
       return
@@ -17,7 +17,7 @@ export function AuthProvider ({ children }){
   
 
   const signOut = useCallback(()=>{
-    sessionStorage.removeItem('@PokeStore_login')
+    sessionStorage.removeItem('@PokeMercadoLivre:login')
     setAuth("");
   },[]);
 
@@ -36,7 +36,7 @@ export function AuthProvider ({ children }){
       }
 
       setAuth(user[0].email);
-      sessionStorage.setItem('@PokeStore_login', user[0].email)
+      sessionStorage.setItem('@PokeMercadoLivre:login', user[0].email)
       api.defaults.headers.Authorization = `Bearer ${user[0].email}`; 
     } catch (error) {
         toast.error(error)
@@ -48,7 +48,7 @@ export function AuthProvider ({ children }){
             try {
               const { data: user } = await api.post('/users', registeriInput)    
               setAuth(user[0].email);
-              sessionStorage.setItem('@PokeStore_login', user[0].email)
+              sessionStorage.setItem('@PokeMercadoLivre:login', user[0].email)
               api.defaults.headers.Authorization = `Bearer ${user[0].email}`; 
             } catch (error) {
                 toast.error("Erro ao cadastrar")

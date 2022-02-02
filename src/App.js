@@ -6,6 +6,7 @@ import AppProvider from './hooks';
 import AppRoutes from './routes';
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
+import { ModalLogin } from './components/ModalLogin';
 
 
 Modal.setAppElement('#root');
@@ -19,6 +20,7 @@ function App() {
           <Footer />
           <GlobalStyle />
           <ToastContainer />
+          <ModalLogin />
       </AppProvider>
     </BrowserRouter>
   );
