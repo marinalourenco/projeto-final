@@ -18,7 +18,7 @@ export function Header() {
         <div className="blue">
           
           <div className="div">
-            <Link to="/">
+            <Link to="">
             <img src={Logo} alt="pokestore" />
             </Link>
             <label>

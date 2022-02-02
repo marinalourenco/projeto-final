@@ -6,8 +6,9 @@ import { api } from '../../services/api'
 export const AuthContext = createContext({});
 
 export function AuthProvider ({ children }){
+  const [profile, setProfile] = useState({});
   const [auth, setAuth] = useState(() => {
-    const token = sessionStorage.getItem('@PokeStore_login');
+    const token = sessionStorage.getItem('@PokeMercadoLivre:login');
     if (token) {
       setAuth(token);
       return
@@ -17,7 +18,7 @@ export function AuthProvider ({ children }){
   
 
   const signOut = useCallback(()=>{
-    sessionStorage.removeItem('@PokeStore_login')
+    sessionStorage.removeItem('@PokeMercadoLivre:login')
     setAuth("");
   },[]);
 
@@ -25,6 +26,7 @@ export function AuthProvider ({ children }){
     try {
       if(!email || !password) {
           toast.error('Login ou senha inválidos')
+          return
      }
       
       const { data: user } = await api.get(`/users?email=${email}`)
@@ -35,8 +37,18 @@ export function AuthProvider ({ children }){
       }
 
       setAuth(user[0].email);
-      sessionStorage.setItem('@PokeStore_login', user[0].email)
+      sessionStorage.setItem('@PokeMercadoLivre:login', user[0].email)
       api.defaults.headers.Authorization = `Bearer ${user[0].email}`; 
+    } catch (error) {
+        toast.error(error)
+        return 
+    }
+  },[]); 
+
+  const getRegister = useCallback(async ({email}) => {
+    try {
+      const { data: user } = await api.get(`/users?email=${email}`)
+      setProfile(user);
     } catch (error) {
         toast.error(error)
         return 
@@ -47,7 +59,7 @@ export function AuthProvider ({ children }){
             try {
               const { data: user } = await api.post('/users', registeriInput)    
               setAuth(user[0].email);
-              sessionStorage.setItem('@PokeStore_login', user[0].email)
+              sessionStorage.setItem('@PokeMercadoLivre:login', user[0].email)
               api.defaults.headers.Authorization = `Bearer ${user[0].email}`; 
             } catch (error) {
                 toast.error("Erro ao cadastrar")
@@ -74,6 +86,8 @@ export function AuthProvider ({ children }){
         updateRegisters,
         signIn,
         signOut,
+        profile,
+        getRegister
       }}
     >
           {children}
