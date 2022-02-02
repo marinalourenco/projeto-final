@@ -25,6 +25,7 @@ export function AuthProvider ({ children }){
     try {
       if(!email || !password) {
           toast.error('Login ou senha inválidos')
+          return
      }
       
       const { data: user } = await api.get(`/users?email=${email}`)
