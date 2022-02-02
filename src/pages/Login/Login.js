@@ -1,7 +1,8 @@
 import { useState } from 'react/cjs/react.development';
 import Modal from './componets/Modal';
 
-function App() {
+
+function Login() {
   const [IsModalVisible, setIsModalVisible] = useState(false);
   
   return (
@@ -39,7 +40,7 @@ function App() {
         </div>
       </div>
      
-    </Modal> ) : null}
+    </Modal> ) : null }
     </div> )}
 
-export default App; 
+export default Login; 

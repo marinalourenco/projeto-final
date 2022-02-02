@@ -13,7 +13,7 @@ export function Header({ onOpenNewRegisterModal, onOpenLoginModal }) {
         <div className="blue">
           
           <div className="div">
-            <Link to="/">
+            <Link to="">
             <img src={Logo} alt="pokestore" />
             </Link>
             <label>
@@ -26,7 +26,7 @@ export function Header({ onOpenNewRegisterModal, onOpenLoginModal }) {
               <FaUser className="FaUser"/> Faça seu <button type="button" 
                 onClick={onOpenLoginModal}
               >
-                Login
+              </button> Login <button type="button" onClick={onOpenNewRegisterModal}>
               </button> ou <button type="button" onClick={onOpenNewRegisterModal}>
                 Cadastre-se
               </button>
