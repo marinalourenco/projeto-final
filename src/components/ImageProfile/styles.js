@@ -22,6 +22,7 @@ export const Image = styled.div`
     position: ${props => props.position ?? "relative" };
     
     background: ${props => `url(${props.image}) no-repeat`};
+    background-size: cover;
 `;
 
 export const Icon = styled.img`

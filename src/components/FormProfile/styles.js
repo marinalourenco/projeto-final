@@ -78,14 +78,15 @@ export const Button = styled.button`
   background-color: ${props => props.isLight ? mixins.colors.primary : mixins.colors.secondary};
   color: ${props => props.isLight ? mixins.colors.secondary : mixins.colors.primary};
   :hover{
-      background: ${mixins.colors.secondary};
-      color: ${mixins.colors.primary};
+      background: ${props => props.isLight ? mixins.colors.secondary: mixins.colors.primary};
+      color: ${props => props.isLight ? mixins.colors.primary: mixins.colors.secondary};
       filter: brightness(0.8);
   }
 `;
 
 export const Select = styled.select`
   width: 12em;
+  height: 3.75em;
   margin: 0;
   padding: 15px;
   border: none;
@@ -94,4 +95,6 @@ export const Select = styled.select`
   font-weight: bold;
   font-size: 14px;
   background-color: ${mixins.colors.gray3};
+  -webkit-appearance: menulist-button !important;
+  line-height:24px !important;
 `;

@@ -23,8 +23,11 @@ export function Header({ onOpenNewRegisterModal, onOpenLoginModal }) {
           
           <div className="users">
             <div className="user">
-              <FaUser className="FaUser"/> Faça seu <button type="button" 
-                onClick={onOpenLoginModal}
+            <Link to="/profile">
+              <FaUser className="FaUser"/>
+              </Link>
+              Faça seu <button type="button" 
+              onClick={onOpenLoginModal}
               >
                 Login
               </button> ou <button type="button" onClick={onOpenNewRegisterModal}>

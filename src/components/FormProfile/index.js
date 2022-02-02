@@ -18,11 +18,12 @@ function FormProfile() {
                             data-testid="name"
                             value={name}
                             onChange={handleName}
+                            required
                         />
                     </Column>
                     <Column alignSelf="flex-end">
                         <SubTitle>Sexo</SubTitle>
-                        <Select name="paises" id="paises" onChange={handleGender}>
+                        <Select name="gender" id="gender" required onChange={handleGender}>
                             {
                                 genders.map((item, index) => (
                                     <option key={index} value={item.genero}>{item.genero}</option>
@@ -34,7 +35,7 @@ function FormProfile() {
                 <Row>
                     <Column>
                         <SubTitle>Origem</SubTitle>
-                        <Select name="paises" id="paises"  onChange={handleOrigin}>
+                        <Select name="origin" id="origin" required onChange={handleOrigin}>
                             {
                                 countries.map((country,index) => (
                                     <option key={index} value={country.nome_pais}>{country.nome_pais}</option>
@@ -49,6 +50,7 @@ function FormProfile() {
                             data-testid="job"
                             value={job}
                             onChange={handleJob}
+                            required
                         />
                     </Column>
                 </Row>
