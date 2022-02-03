@@ -1,4 +1,4 @@
-import { Card, Container, Content, Grid } from './styles';
+import { Card, Container, Content, Grid, Loading } from './styles';
 import { useEffect, useState } from 'react';
 import { api } from '../../services/api';
 import { useModal } from '../../hooks/useModal';
@@ -26,11 +26,21 @@ export default function Shooping() {
 
     return () => intersectionObserver.disconnect()
   }, []);
+
+  if(pokeCard.length<1){
+    return(
+    <Container>
+      <Loading>
+        <img src="http://atop4top.net/p_1990j031.gif" alt="loading..." />
+        <h2>Loading</h2>
+      </Loading>
+    </Container>
+    )
+  }
   
   return (
     <>      
       <Container>
-        
         <Content>
           <Grid>
           { pokeCard.map(pokecard => (
