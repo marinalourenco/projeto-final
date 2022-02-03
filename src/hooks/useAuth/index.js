@@ -1,4 +1,4 @@
-import { createContext,  useState,  useCallback, useContext } from 'react';
+import { createContext,  useState,  useCallback, useContext, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { api } from '../../services/api'
 
@@ -22,6 +22,7 @@ export function AuthProvider ({ children }){
   },[]);
 
   const signIn = useCallback(async ({email, password}) => {
+    console.log(email, password)
     try {
       if(!email || !password) {
           toast.error('Login ou senha inválidos')
@@ -29,6 +30,7 @@ export function AuthProvider ({ children }){
      }
       
       const { data: user } = await api.get(`/users?email=${email}`)
+      console.log(user)
       if(user.length === 0 || password !== user[0].password) {
           toast.error('Login ou senha inválidos')
           return 
@@ -43,10 +45,11 @@ export function AuthProvider ({ children }){
     }
   },[]); 
 
-  const getRegister = useCallback(async ({email}) => {
+  const getRegister = useCallback(async () => {
     try {
-      const { data: user } = await api.get(`/users?email=${email}`)
-      setProfile(user);
+      const { data: user } = await api.get(`/users?email=${auth}`)
+      console.log("aqui",user)
+      setProfile(user[0]);
     } catch (error) {
         toast.error(error)
         return 
@@ -75,6 +78,12 @@ export function AuthProvider ({ children }){
           }
     },[])
 
+  //useEffect(()=>{
+    //console.log(auth)
+      //if(auth){
+        //getRegister(auth)
+     // }
+ // },[auth])
  
   return (
     <AuthContext.Provider 

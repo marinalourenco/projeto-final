@@ -4,27 +4,20 @@ import {genders} from '../../utils/gender'
 import { useAuth } from '../../hooks/useAuth'
 import { useEffect } from "react";
 import { useFormik } from "formik"
-import * as yup from 'yup';
 
 
 function FormRegister() {
-    const { auth, profile, getRegister,  createRegister, updateRegisters, } = useAuth()
+    const { auth, profile, createRegister, updateRegisters, } = useAuth()
 
-    useEffect(()=>{
-        if(auth){
-            getRegister(auth)
-        }
-    },[getRegister, auth])
     const formik = useFormik({
         initialValues:{
-          name:auth?profile.name:"",
-          gender:auth?profile.gender:"",
-          origin: auth?profile.origin:"",
-          job: auth?profile.job:"",
-          email:auth?profile.email:"",
-          password:auth?profile.password:"",
+          name:profile?profile.name:"",
+          gender:profile?profile.gender:"",
+          origin: profile?profile.origin:"",
+          job: profile?profile.job:"",
+          email:profile?profile.email:"",
+          password:profile?profile.password:"",
         },
-        validationSchema,
         onSubmit: async (values)=>{
          if(auth){
                 updateRegisters(values)

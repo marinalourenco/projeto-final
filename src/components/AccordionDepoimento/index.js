@@ -6,21 +6,21 @@ function AccordionDepoimento() {
   return (
     <Accordion defaultActiveKey="0">
   <Accordion.Item eventKey="0">
-    <Accordion.Header>Nossas vendas são confiaveis</Accordion.Header>
-    <Accordion.Body>
-      Ficava receoso em realizar qualquer compra online, mas entrei em contato com a equipe da Pokemon Store, e foram muito solícitos e prestativos em sanar com todas as minhas dúvidas. É a melhor loja para fazer as suas compras e aumentar suas coleções. Desejo muito sucesso nas vendas e vou continuar comprando meus pokémons com vocês. Muito obrigado!
-     </Accordion.Body>
-  </Accordion.Item>
-  <Accordion.Item eventKey="1">
     <Accordion.Header>Formas de Pagamento</Accordion.Header>
     <Accordion.Body>
-      Super recomendo! É a melhor loja online de pokémons, preços justos e promoções imperdíveis!
+    Cartões de crédito são a forma de pagamento mais aceita nas compras que anunciam na Pokémon Store. A maioria delas usa cartões de crédito para validar a compra. Em alguns casos, formas alternativas de pagamento como PayPal, entre outras, também são aceitas. Há algumas exceções à regra, em que também pode ser possível o pagamento com cartão de débito.
+    </Accordion.Body>
+  </Accordion.Item>
+  <Accordion.Item eventKey="1">
+    <Accordion.Header>Trocas e Devoluções</Accordion.Header>
+    <Accordion.Body>
+    Se quiser trocar ou devolver seu pedido, não importa o motivo, estamos aqui para ajudar! O Código de Defesa do Consumidor define que trocas e devoluções podem ser realizadas em até 7 dias em caso de arrependimento. Após esse período, são gratuitas pelo prazo de 30 dias após a data do seu pedido. Você pode trocar seu produto por crédito no estabelecimento, um produto diferente ou receber reembolso pela mesma forma de pagamento.
     </Accordion.Body>
   </Accordion.Item>
   <Accordion.Item eventKey="2">
-    <Accordion.Header>Tempo de Entrega</Accordion.Header>
+    <Accordion.Header>Fale Conosco</Accordion.Header>
     <Accordion.Body>
-      Super recomendo! É a melhor loja online de pokémons, preços justos e promoções imperdíveis!
+    Entre em contato conosco pelo nosso e-mail: suporte@pokemonstore.com.br ou pelo nosso 0800.000.0000.
     </Accordion.Body>
   </Accordion.Item>
 </Accordion>
