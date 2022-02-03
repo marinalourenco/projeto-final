@@ -27,7 +27,7 @@ export default function Shooping() {
     return () => intersectionObserver.disconnect()
   }, []);
 
-  if(pokeCard.length<1){
+  if(pokeCard?.length<1){
     return(
     <Container>
       <Loading>
