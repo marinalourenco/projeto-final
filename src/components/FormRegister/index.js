@@ -24,7 +24,6 @@ function FormRegister() {
           email:auth?profile.email:"",
           password:auth?profile.password:"",
         },
-
         onSubmit: async (values)=>{
          if(auth){
                 updateRegisters(values)
