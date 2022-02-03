@@ -1,17 +1,17 @@
 import React from 'react';
-import FormProfile from '../FormProfile';
+import FormRegister from '../FormRegister';
 import ImageProfile from '../ImageProfile';
 import { Container, Card } from './styles';
 
-function MyProfile() {
+function MyRegister() {
   return (
       <Container>
         <Card>
           <ImageProfile/>
-          <FormProfile/>
+          <FormRegister/>
         </Card>
       </Container>
   );
 }
 
-export default MyProfile;
+export default MyRegister;

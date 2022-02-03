@@ -1,7 +1,7 @@
-import MyProfile from "../../components/MyProfile";
+import MyRegister from "../../components/MyRegister";
 
 function Profile() {
-   return <MyProfile />
+   return <MyRegister />
 }
 
 export default Profile;

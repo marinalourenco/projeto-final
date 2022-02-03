@@ -1,18 +1,24 @@
-import useProfile from "../../hooks/useProfile";
 import { Container, Form, Title, SubTitle, Row, Column, Input, Button, Select} from "./styles";
 import {countries} from '../../utils/countries'
 import {genders} from '../../utils/gender'
 import { useAuth } from '../../hooks/useAuth'
 import { useEffect } from "react";
 import { useFormik } from "formik"
+import * as yup from 'yup';
 
 
-
-function FormProfile() {
+function FormRegister() {
     const { auth, profile, getRegister,  createRegister, updateRegisters, } = useAuth()
+
     useEffect(()=>{
         getRegister(auth)
     },[])
+    
+    const validationSchema = yup.object().shape({
+        email: yup.string().email('Informe um email válido').required('Login é obrigatório'),
+        password: yup.string().min(8).required('Senha é obrigatório')
+      });
+
     const formik = useFormik({
         initialValues:{
           name:auth?profile.name:"",
@@ -22,9 +28,8 @@ function FormProfile() {
           email:auth?profile.email:"",
           password:auth?profile.password:"",
         },
-
+        validationSchema,
         onSubmit: async (values)=>{
-          console.log(values)
          if(auth){
                 updateRegisters(values)
               return
@@ -82,7 +87,7 @@ function FormProfile() {
                         >
                             {
                                countries.map((item, index) => (
-                                <option index={index} value={item.nome_pais}>{item.nome_pais}</option>
+                                <option key={index} value={item.nome_pais}>{item.nome_pais}</option>
                                ))
                             }
                         </Select>
@@ -123,6 +128,8 @@ function FormProfile() {
                         />
                     </Column>
                 </Row>
+                    <p>{formik.errors.email && <span>{formik.errors.email}</span>}</p>
+                    <p>{formik.errors.password && <span>{formik.errors.password}</span>}</p>
                 <Row>
                     <Button type="submit" isLight >SALVAR</Button>
                     <Button onClick={()=>{}}>CANCELAR</Button>
@@ -132,4 +139,4 @@ function FormProfile() {
     )
 }
 
-export default FormProfile;
+export default FormRegister;

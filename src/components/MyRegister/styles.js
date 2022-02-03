@@ -11,8 +11,9 @@ export const Container = styled.div`
 `;
 
 export const Card = styled.div`
-    width: 55%;
-    height: 60%;
+    width: 60%;
+    height: 70%;
+    min-height: 35em;
     background-color: white;
     padding-left: 2em;
     border-radius: 2rem;
