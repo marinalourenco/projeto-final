@@ -6,16 +6,16 @@ import { useFormik } from "formik"
 
 
 function FormRegister() {
-    const { auth, profile, createRegister, updateRegisters, } = useAuth()
+    const { auth, createRegister, updateRegisters, } = useAuth()
 
     const formik = useFormik({
         initialValues:{
-          name:profile?profile.name:"",
-          gender:profile?profile.gender:"",
-          origin: profile?profile.origin:"",
-          job: profile?profile.job:"",
-          email:profile?profile.email:"",
-          password:profile?profile.password:"",
+          name:"",
+          gender:"",
+          origin:"",
+          job:"",
+          emaill:"",
+          password:"",
         },
         onSubmit: async (values)=>{
          if(auth){

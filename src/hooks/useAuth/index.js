@@ -93,7 +93,7 @@ export function AuthProvider ({ children }){
         updateRegisters,
         signIn,
         signOut,
-        profile,
+ //       profile,
       }}
     >
           {children}
