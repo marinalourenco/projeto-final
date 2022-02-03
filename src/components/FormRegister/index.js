@@ -11,14 +11,10 @@ function FormRegister() {
     const { auth, profile, getRegister,  createRegister, updateRegisters, } = useAuth()
 
     useEffect(()=>{
-        getRegister(auth)
-    },[])
-    
-    const validationSchema = yup.object().shape({
-        email: yup.string().email('Informe um email válido').required('Login é obrigatório'),
-        password: yup.string().min(8).required('Senha é obrigatório')
-      });
-
+        if(auth){
+            getRegister(auth)
+        }
+    },[getRegister, auth])
     const formik = useFormik({
         initialValues:{
           name:auth?profile.name:"",
@@ -59,9 +55,8 @@ function FormRegister() {
                     <Column alignSelf="flex-end">
                         <SubTitle>Sexo</SubTitle>
                         <Select 
-                            name="gender" 
-                            name="gender"
                             id="gender" 
+                            name="gender" 
                             required 
                             onChange={formik.handleChange}
                             value={formik.values.gender}
@@ -78,9 +73,8 @@ function FormRegister() {
                     <Column>
                         <SubTitle>Origem</SubTitle>
                         <Select 
-                            name="origin" 
-                            name="origin"
                             id="origin" 
+                            name="origin"
                             required 
                             onChange={formik.handleChange}
                             value={formik.values.origin}
