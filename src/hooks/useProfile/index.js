@@ -6,17 +6,6 @@ export const useProfile = () => {
     const [gender, setGender] = useState();
     const [origin, setOrigin] = useState();
     const [job, setJob] = useState("");
-//const {nameHook,genderHook,originHook,jobHook}= context/redux com os dados do login
-
-// useEffect(()=>{
-//     const init=()=>{
-//         setName(namehook);
-//         setGender(genderHook);
-//         setOrigin(originHook);
-//         setJob(jobHook);
-//     };
-//     init();
-// },[])
 
     const handleName = (event) => setName(event.target.value);
     const handleGender = (event) =>{
@@ -32,14 +21,8 @@ export const useProfile = () => {
                 name, 
                 gender, 
                 origin, 
-                job);
-                // const body = {
-                //     name, 
-                //     gender, 
-                //     origin, 
-                //     job
-                // };
-                // await api.post(`user`,body);
+                job,
+                );
                 toast('Salvo com sucesso!')
         
             } catch(error){
@@ -64,6 +47,4 @@ export const useProfile = () => {
         returnButton
     }
 }
-
-
 export default useProfile;
