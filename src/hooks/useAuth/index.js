@@ -45,7 +45,6 @@ export function AuthProvider ({ children }){
     }
   },[]); 
 
-  /**
   const getRegister = useCallback(async () => {
     try {
       const { data: user } = await api.get(`/users?email=${auth}`)
@@ -56,8 +55,6 @@ export function AuthProvider ({ children }){
         return 
     }
   },[auth]); 
-  
-  */
 
  const createRegister = useCallback(async (registeriInput) => {
             try {
@@ -96,8 +93,6 @@ export function AuthProvider ({ children }){
         updateRegisters,
         signIn,
         signOut,
-        profile,
-        getRegister
       }}
     >
           {children}
