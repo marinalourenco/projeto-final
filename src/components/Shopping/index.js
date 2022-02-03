@@ -1,7 +1,6 @@
 import { Card, Container, Content, Grid } from './styles';
 import { useEffect, useState } from 'react';
 import { api } from '../../services/api';
-import { useCart } from '../../hooks/useCart';
 import { useModal } from '../../hooks/useModal';
 
 export default function Shooping() { 
