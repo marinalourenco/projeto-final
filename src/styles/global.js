@@ -46,10 +46,12 @@ export const GlobalStyle = createGlobalStyle`
   .react-modal-content{
     width: 100%;
     max-width: 456px;
-    background: ${mixins.colors.primary};
+    background: #FFF;
     padding: 3rem;
     position: relative;
     border-radius: 0.25rem; 
+    border-radius: 25px;
+    border: 2px solid ${mixins.colors.secondary};
     
   }
   .react-modal-content-description{

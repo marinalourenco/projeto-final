@@ -33,8 +33,8 @@ export const Container = styled.form`
     width: 19rem;
     height: 2.5rem;
     padding: 0 1.5rem;
-    background: ${mixins.colors.secondary};
-    color: ${mixins.colors.primary};
+    background: ${mixins.colors.primary};
+    color: ${mixins.colors.secondary};
     border-radius: 0.25rem;
     border: 0;
     font-size: 1rem;
