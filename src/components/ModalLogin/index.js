@@ -5,6 +5,7 @@ import * as yup from 'yup';
 import { Container } from './styles';
 import { useModal } from '../../hooks/useModal';
 import { useAuth } from '../../hooks/useAuth';
+import {Link} from "react-router-dom";
 
 
 const validationSchema = yup.object().shape({
@@ -69,14 +70,14 @@ export function ModalLogin() {
           <p>{formik.errors.password && <span>{formik.errors.password}</span>}</p>
 
           <div className="senha">
-            <p>Esqueci minha <a href="">senha</a></p>
+            <p>Esqueci minha <a href="#">senha</a></p>
           </div>
 
           <button type="submit">ENTRAR</button>
           
 
           <div className="register">
-            <p>Não tem conta? <a href="">Registre-se</a></p>
+            <p>Não tem conta? <Link to="/profile">Registre-se</Link></p>
           </div>
       
       </Container>
