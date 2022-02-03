@@ -56,8 +56,7 @@ function FormProfile() {
                         <SubTitle>Sexo</SubTitle>
                         <Select 
                             id="gender" 
-                            name="gender"
-                            id="gender" 
+                            name="gender" 
                             required 
                             onChange={formik.handleChange}
                             value={formik.values.gender}
@@ -76,7 +75,6 @@ function FormProfile() {
                         <Select 
                             id="origin" 
                             name="origin"
-                            id="origin" 
                             required 
                             onChange={formik.handleChange}
                             value={formik.values.origin}
