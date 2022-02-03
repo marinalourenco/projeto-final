@@ -1,4 +1,3 @@
-import useProfile from "../../hooks/useProfile";
 import { Container, Form, Title, SubTitle, Row, Column, Input, Button, Select} from "./styles";
 import {countries} from '../../utils/countries'
 import {genders} from '../../utils/gender'
@@ -11,8 +10,10 @@ import { useFormik } from "formik"
 function FormProfile() {
     const { auth, profile, getRegister,  createRegister, updateRegisters, } = useAuth()
     useEffect(()=>{
-        getRegister(auth)
-    },[])
+        if(auth){
+            getRegister(auth)
+        }
+    },[getRegister, auth])
     const formik = useFormik({
         initialValues:{
           name:auth?profile.name:"",
@@ -54,7 +55,7 @@ function FormProfile() {
                     <Column alignSelf="flex-end">
                         <SubTitle>Sexo</SubTitle>
                         <Select 
-                            name="gender" 
+                            id="gender" 
                             name="gender"
                             id="gender" 
                             required 
@@ -73,7 +74,7 @@ function FormProfile() {
                     <Column>
                         <SubTitle>Origem</SubTitle>
                         <Select 
-                            name="origin" 
+                            id="origin" 
                             name="origin"
                             id="origin" 
                             required 
