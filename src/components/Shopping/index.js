@@ -17,7 +17,6 @@ export default function Shooping() {
   useEffect(() => {
     const intersectionObserver = new IntersectionObserver((entries) => {
       if(entries.some((entry) => entry.isIntersecting)) {
-        console.log('Elemento visivel');
         setCurrentPage((currentPageInsideState) => currentPageInsideState + 1)
       }
     });
@@ -27,21 +26,13 @@ export default function Shooping() {
     return () => intersectionObserver.disconnect()
   }, []);
 
-  if(pokeCard?.length<1){
-    return(
-    <Container>
-      <Loading>
-        <img src="http://atop4top.net/p_1990j031.gif" alt="loading..." />
-        <h2>Loading</h2>
-      </Loading>
-    </Container>
-    )
-  }
-  
+
+    
   return (
-    <>      
+    <>
+    {pokeCard.length>0?(      
       <Container>
-        <Content>
+        <Content>                  
           <Grid>
           { pokeCard.map(pokecard => (
             <Card key={pokecard.id} onClick={() => handleOpenDetailModal(pokecard)}>
@@ -65,6 +56,16 @@ export default function Shooping() {
         </Content>
         <p id="sentinel"/>
       </Container>
+      ):(
+        <Container>
+            <Content>
+                  <Loading>
+                    <img src="http://a.top4top.net/p_1990j031.gif" alt="loading..." />
+                    <h2>Carregando...</h2>
+                  </Loading>
+            </Content>
+          </Container>
+      )}
     </>
   )
 }
