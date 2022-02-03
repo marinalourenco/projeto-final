@@ -6,7 +6,7 @@ import { api } from '../../services/api'
 export const AuthContext = createContext({});
 
 export function AuthProvider ({ children }){
-  const [profile, setProfile] = useState({});
+  //const [profile, setProfile] = useState({});
   const [auth, setAuth] = useState(() => {
     const token = sessionStorage.getItem('@PokeMercadoLivre:login');
     if (token) {
@@ -45,7 +45,7 @@ export function AuthProvider ({ children }){
     }
   },[]); 
 
-  const getRegister = useCallback(async () => {
+  /**const getRegister = useCallback(async () => {
     try {
       const { data: user } = await api.get(`/users?email=${auth}`)
       console.log("aqui",user)
@@ -54,7 +54,7 @@ export function AuthProvider ({ children }){
         toast.error(error)
         return 
     }
-  },[auth]); 
+  },[auth]); */
 
  const createRegister = useCallback(async (registeriInput) => {
             try {
