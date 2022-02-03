@@ -14,19 +14,26 @@ export const Container = styled.div`
 `
 
 export const Loading = styled.div`
-    width: 60%;
-    height: 70%;
-    min-height: 35em;
+    width: 350px;
+    min-height: 350px;
     background-color: white;
     padding-left: 2em;
     border-radius: 2rem;
-    border-color: ${mixins.colors.secondary}; 
     border: 2px solid ${mixins.colors.secondary};
+    align-items: center;
+    justify-content: center;
     
     display: flex;
-    flex-direction: column:
+    flex-direction: column;
     
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    img{
+      width: 80%;
+    }
+    h2{
+      color: ${mixins.colors.secondary};
+      text-align: center;
+    }
 `;
 
 export const Content = styled.div`
