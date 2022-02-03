@@ -14,6 +14,8 @@ export const Card = styled.div`
     width: 60%;
     height: 70%;
     min-height: 35em;
+    justifyContent: 'space-between';
+    
     background-color: white;
     padding-left: 2em;
     border-radius: 2rem;
@@ -22,6 +24,4 @@ export const Card = styled.div`
     
     display: flex;
     flex-direction: column:
-    
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 `;
