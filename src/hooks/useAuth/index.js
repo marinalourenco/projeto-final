@@ -1,4 +1,4 @@
-import { createContext,  useState,  useCallback, useContext, useEffect } from 'react';
+import { createContext,  useState,  useCallback, useContext } from 'react';
 import { toast } from 'react-toastify';
 import { api } from '../../services/api'
 
@@ -54,7 +54,7 @@ export function AuthProvider ({ children }){
         toast.error(error)
         return 
     }
-  },[]); 
+  },[auth]); 
 
  const createRegister = useCallback(async (registeriInput) => {
             try {

@@ -2,7 +2,6 @@ import { Container, Form, Title, SubTitle, Row, Column, Input, Button, Select} f
 import {countries} from '../../utils/countries'
 import {genders} from '../../utils/gender'
 import { useAuth } from '../../hooks/useAuth'
-import { useEffect } from "react";
 import { useFormik } from "formik"
 
 
