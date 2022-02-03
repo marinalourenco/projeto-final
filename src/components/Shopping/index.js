@@ -7,7 +7,6 @@ import { useModal } from '../../hooks/useModal';
 export default function Shooping() { 
   const [ pokeCard, setPokeCard ] = useState([])
   const [ currentPage, setCurrentPage ] = useState(1);
-  const { addProduct } = useCart();
   const { handleOpenDetailModal } = useModal()
 
   useEffect(() => {
