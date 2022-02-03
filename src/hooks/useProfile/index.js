@@ -3,7 +3,6 @@ import { toast } from 'react-toastify';
 
 export const useProfile = () => {
     const [name, setName] = useState("");
-    
     const [gender, setGender] = useState();
     const [origin, setOrigin] = useState();
     const [job, setJob] = useState("");
@@ -22,7 +21,8 @@ export const useProfile = () => {
                 name, 
                 gender, 
                 origin, 
-                job);
+                job,
+                );
                 toast('Salvo com sucesso!')
         
             } catch(error){
@@ -47,6 +47,4 @@ export const useProfile = () => {
         returnButton
     }
 }
-
-
 export default useProfile;
