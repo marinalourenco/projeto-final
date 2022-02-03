@@ -70,7 +70,7 @@ export function ModalLogin() {
           <p>{formik.errors.password && <span>{formik.errors.password}</span>}</p>
 
           <div className="senha">
-            <p>Esqueci minha <a>senha</a></p>
+            <p>Esqueci minha <Link to="/profile">senha</Link></p>
           </div>
 
           <button type="submit">ENTRAR</button>
