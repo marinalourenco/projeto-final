@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/248bc9f2-0bea-4130-af87-8669bbd82148/resourceGroups/acc-projetofinal/providers/Microsoft.Web/sites/pokestoreaccapi",
+    "appService.deploySubpath": "."
+}

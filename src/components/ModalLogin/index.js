@@ -24,7 +24,6 @@ export function ModalLogin() {
     },
     validationSchema,
     onSubmit: async (values)=>{
-      console.log("login",values)
       await signIn(values); 
       handleCloseLoginModal()
     }
