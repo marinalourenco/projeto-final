@@ -4,20 +4,17 @@ import Lupa from '../../assets/lupa.svg';
 
 
 export const User = styled.div`
-background: ${mixins.colors.primary};
-width: 100%;
-height: 100px;
-display: flex;
-align-items: center;
-justify-content: space-around;
-position: fixed;
-top:0;
-z-index:1;
-@media(max-width: 1080px) {
-  height: 116px;
-}
-@media(max-width: 750px) {
-  height: 160px;
+  background: ${mixins.colors.primary};
+  width: 100%;
+  height: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: fixed;
+  top:0;
+  z-index:1;
+@media(max-width: 600px) {
+  height: 9.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,16 +24,9 @@ z-index:1;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 1350px;
-  
-  @media(max-width: 1366px) {
-    width: 1000px;
-  }
-  @media(max-width: 1080px) {
-    width: 610px;
-  }
-  @media(max-width: 750px) {
-    width: 400px;
+  width: 80%;
+
+  @media(max-width: 600px) {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -44,13 +34,16 @@ z-index:1;
   }
   
   .div {
-    img{
-    width: 85px;
-    border-radius: 15px;
-    margin-right: 15px;
-     }
     display: flex;
     align-items: center;
+    img{
+    width: 5.313rem;
+    border-radius: 0.938rem;
+    margin-right: 0.938rem;
+      @media(max-width: 1080px) {
+        width: 2.75rem;
+      }
+    }
     label {
       position: relative;
     }
@@ -60,7 +53,7 @@ z-index:1;
       left: 1rem;
       top: 0.7rem;
       bottom: 0;
-      width: 30px;
+      width: 1.875rem;
       background: url(${Lupa}) no-repeat;
     }
     input {
@@ -70,7 +63,7 @@ z-index:1;
       border: 0;
       background: ${mixins.colors.background};
       @media(max-width: 750px) {
-        width: 22rem;
+        width: 16rem;
       }
       &::placeholder {
         color: ${mixins.colors.gray2};
@@ -78,13 +71,14 @@ z-index:1;
     }
   }
   .users{
+    margin-top: 1rem;
     display: flex;
     align-items:center;
     justify-content: space-around;
-    @media(max-width: 750px) {
-      margin-top: 1rem;
-      width: 23rem;
+    @media(max-width: 1280px) {
+      flex-direction: column;
     }
+    
     .user {
     padding: 0;
     margin: 0;
@@ -94,9 +88,11 @@ z-index:1;
     font-weight: 400;
     font-size: 0.9rem;
     margin-left: 1rem;
+    @media(max-width: 750px) {
+      margin-left:0;
+    }
     .FaUser {
       color: ${mixins.colors.white};
-      width: 20px;
     }
     color: ${mixins.colors.background}
   }
@@ -111,7 +107,7 @@ z-index:1;
     }
     .ShopCar {
       color: ${mixins.colors.white};
-      width: 20px;
+      width: 1.25rem;
     }
     .cart{
       font-weight: 400;

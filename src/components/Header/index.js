@@ -51,7 +51,7 @@ export function Header() {
             )}
   
             <span className="car">
-              <FaShoppingCart /> <Link className="cart" to="/cart"> Seu carrinho tem <p className="shop">{cartSize === 1 ? `${cartSize} item` : `${cartSize} itens`}</p></Link>
+            <Link className="cart" to="/cart"> <FaShoppingCart  className="ShopCar"/> {` Seu carrinho tem`} <p className="shop">{cartSize === 1 ? `${cartSize} item` : `${cartSize} itens`}</p></Link>
             </span>
           </div>
         </div>
