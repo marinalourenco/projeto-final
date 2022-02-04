@@ -37,7 +37,7 @@ export default function Shooping() {
       <Container>
         <Content>                  
           <Grid>
-          { pokeCard.map(pokecard => (
+          {pokeCard.map(pokecard => (
             <Card key={pokecard.id} onClick={() => handleOpenDetailModal(pokecard)}>
               <div className="img">
                 <img src={`images/${pokecard.id}.gif`} alt={pokecard.name} />

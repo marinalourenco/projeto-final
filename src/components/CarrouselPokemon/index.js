@@ -2,10 +2,11 @@ import React from 'react';
 import { Carousel } from 'react-bootstrap';
 import banner1 from '../../assets/banner1.png';
 import banner2 from '../../assets/banner2.png';
-// import { Container } from './styles';
+import * as S from './styles';
 
 function CarrouselPokemon() {
   return (
+    <S.Container>
     <Carousel indicators={false} className="w-100">
     <Carousel.Item>
       <img
@@ -22,6 +23,7 @@ function CarrouselPokemon() {
       />
     </Carousel.Item>
   </Carousel>
+  </S.Container>
   );
 }
 

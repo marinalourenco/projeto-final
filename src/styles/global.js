@@ -84,4 +84,5 @@ export const GlobalStyle = createGlobalStyle`
       }
   }
   }
+  
 `;

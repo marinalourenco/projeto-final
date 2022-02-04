@@ -5,6 +5,7 @@ import { useAuth } from '../../hooks/useAuth';
 import { useModal } from '../../hooks/useModal';
 import { Link, useNavigate } from 'react-router-dom';
 import Logo from "../../assets/logo.png"
+import CarrouselPokemon from '../CarrouselPokemon';
 
 export function Header() {
     const navigate = useNavigate()
@@ -54,8 +55,8 @@ export function Header() {
             <Link className="cart" to="/cart"> <FaShoppingCart  className="ShopCar"/> {` Seu carrinho tem`} <p className="shop">{cartSize === 1 ? `${cartSize} item` : `${cartSize} itens`}</p></Link>
             </span>
           </div>
+          
         </div>
-        
       </User>
     )
 }
