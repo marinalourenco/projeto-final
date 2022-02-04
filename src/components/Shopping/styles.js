@@ -11,7 +11,7 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  @media(max-width: 600px) {
+  @media(max-width: 900px) {
     margin-top: 12rem;
   }
 `
