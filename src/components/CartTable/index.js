@@ -1,5 +1,4 @@
-import { Container, Content, Title, ButtonPrimario, ButtonSecundario, DivCompra, ContainerCepCompra, DivBotoes } from './styles';
-import Table from 'react-bootstrap/Table'
+import * as S from './styles';
 import { formatPrice } from '../../utils/format';
 import { useCart } from '../../hooks/useCart';
 import { useModal } from '../../hooks/useModal';
@@ -51,9 +50,9 @@ const CartTable = () => {
 
     return (
         <>
-            <Container>
-                <Title>Carrinho de Compras</Title>
-                <Content>
+            <S.Container>
+                <S.Title>Carrinho de Compras</S.Title>
+                <S.Content>
                     <table>
                         <thead>
                             <tr>
@@ -116,19 +115,19 @@ const CartTable = () => {
                                 ))}  
                         </tbody>
                     </table>
-                </Content>
-                    <DivBotoes>
-                        <ButtonPrimario onClick={() => navigate("/")} >Continuar Comprando</ButtonPrimario>
-                        <ButtonSecundario onClick={removeAllProduct} >Cancelar Compra</ButtonSecundario>
-                    </DivBotoes>
-                    <ContainerCepCompra>
-                        <DivCompra>
+                </S.Content>
+                    <S.DivBotoes>
+                        <S.ButtonPrimario onClick={() => navigate("/")} >Continuar Comprando</S.ButtonPrimario>
+                        <S.ButtonSecundario onClick={removeAllProduct} >Cancelar Compra</S.ButtonSecundario>
+                    </S.DivBotoes>
+                    <S.ContainerCepCompra>
+                        <S.DivCompra>
                             <h3>valor total: {total}</h3>
                             <button onClick={handleOpenCompleteModal} disabled={cartFormatted.length < 1 }>Finalizar Compra</button>
-                        </DivCompra>
-                    </ContainerCepCompra>
+                        </S.DivCompra>
+                    </S.ContainerCepCompra>
                        
-            </Container>
+            </S.Container>
                                      
         </>
         )
