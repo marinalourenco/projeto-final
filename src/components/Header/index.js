@@ -5,7 +5,6 @@ import { useAuth } from '../../hooks/useAuth';
 import { useModal } from '../../hooks/useModal';
 import { Link, useNavigate } from 'react-router-dom';
 import Logo from "../../assets/logo.png"
-import CarrouselPokemon from '../CarrouselPokemon';
 
 export function Header() {
     const navigate = useNavigate()
