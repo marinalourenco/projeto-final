@@ -12,6 +12,7 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   grid-gap: 2rem;
+  margin-top: 100px;
   img{
     height: 198px;
   width: 355px;

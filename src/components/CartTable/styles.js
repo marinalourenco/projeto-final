@@ -2,7 +2,10 @@ import styled from 'styled-components';
 import { mixins } from "../../styles/mixins"
 
 export const Container = styled.div`
-  margin: 50px;
+  margin-top: 3.125rem;
+  padding: 6.250rem;
+  align-items: center;
+  justify-content: center;
 `
 
 export const Title = styled.h1`
@@ -11,45 +14,60 @@ export const Title = styled.h1`
   font-family: Poppins;
   font-style: normal;
   font-weight: bold;
-  font-size: 26px;
-  line-height: 54px;
+  font-size: 1.625rem;
+  line-height: 3.375rem;
   color: ${mixins.colors.secondary};
 `
 
 export const Content = styled.div`
+  display: flex;
+  min-width: 10rem;
+  width: auto;
   background: ${mixins.colors.white};
-  grid-template-columns: auto auto auto auto auto;
-  align-self: center;
   border-radius: 2rem;
   align-items: center;
   justify-content: center;
-  padding: 50px;
+  margin-top: 3rem;
+  padding:  3.125rem 0;
   border-radius: 0.5rem;
   border-color: ${mixins.colors.secondary}; 
   border: 2px solid ${mixins.colors.secondary};
-  box-sizing: border-box;
     table {
-      width: 100%;
+      width: 80%;
       text-align: center;
       .qtdProduct {
         display: flex;
         align-items: center;
         justify-content: center;
+        @media(max-width: 600px) {
+          flex-direction: column;
+          width: 50px;
+        }
         .btni {
           border: none;
           margin-right: 0.5rem;
+          background-color: #fff;
           color: ${mixins.colors.secondary};
+          @media(max-width: 600px) {
+            margin-right:0;
+          }
         }
         .btnd {
           border: none;
           margin-left: 0.5rem;
+          background-color: #fff;
           color: ${mixins.colors.secondary};
+          @media(max-width: 600px) {
+            margin-left:0;
+          }
         }
+        
       }
       
       .btnRemove{
         border: 0.2rem solid ${mixins.colors.secondary};
         border-radius: 0.5rem;
+        background: #fff;
         width: 3rem;
         height: 3rem;
         .iconRemove{
@@ -60,47 +78,75 @@ export const Content = styled.div`
         font-family: Poppins;
         font-style: normal;
         font-weight: bold;
-        font-size: 20px;
-        line-height: 27px;
+        font-size: 1.25rem;
+        line-height: 1.688rem;
         color: ${mixins.colors.secondary};
+        @media(max-width: 600px) {
+          font-size: 0.75rem;
+        }
       }
       p {
         font-family: Poppins;
         font-style: normal;
-        font-weight: normal;
-        font-size: 15px;
-        line-height: 24px;
+        font-weight: 700;
+        font-size: 1.2rem;
         color: ${mixins.colors.secondary};
+        @media(max-width: 600px) {
+          font-size: 0.75rem;
+        }
       }
       input {
-        width: 78px;
-        height: 58px;
+        width: 4.875rem;
+        height: 3.625rem !important;
         text-align: center;
-        background: #DFDDDD;
-        font-size: 20px;
+        background: #fff;
+        font-size: 1.25rem;
         color: ${mixins.colors.secondary};
-        border-radius: 10px;
-        border-color: ${mixins.colors.secondary};
+        border-radius: 0.625rem;
         border: 0.2rem solid ${mixins.colors.secondary};
+        @media(max-width: 600px) {
+          width: 1.75rem;
+          height: 1.75rem !important;
+        }
       }
       td {
-        background: #F3F3F3;
-        height: 110px;
+        background: #fff;
+        width: auto;
+        border-bottom: 2px solid ${mixins.colors.secondary};
+      }
+      th {
+        background: #fff;
+        width: auto;
+      }
       img {
-        max-width: 5rem;
+        width: 3.75rem;
+        @media(max-width: 600px) {
+          width: 2.5rem;
+        }
       }
       div {
         display: flex;
+        @media(max-width: 600px) {
+          width: 20px;
+        }
       }
+      
     }
-  }
-`
+  
+`;
 
 export const ContainerCepCompra = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 45px;
+  margin-top: 2.813rem;
+  `
+
+export const DivBotoes = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2.813rem;
 `
 
 
@@ -114,23 +160,23 @@ export const DivCompra = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0.5rem;
   h3{
     font-family: Poppins;
     font-style: normal;
     font-weight: 700;
     font-size: 1.1rem;
-    line-height: 27px;
+    line-height: 1.688rem;
     color: #004278;
-    margin-right: 1rem;
-    
   }
   button{
+    margin-left: 1rem;
     border: none;
-    width: 240px;
-    height: 55px;
+    width: 15rem;
+    height: 3.438rem;
     background: #05D733;
     border-radius: 0.5rem;
-    font-size: 16px;
+    font-size: 1rem;
     text-align: center;
     color: ${mixins.colors.white};
     font-family: Poppins;
@@ -142,8 +188,8 @@ export const DivCompra = styled.div`
 
 export const ButtonPrimario = styled.button`
   border: none;
-  width: 250px;
-  height: 55px;
+  width: 15.625rem;
+  height: 3.438rem;
   background: #004278;
   border-radius: 0.5rem;
   font-family: Poppins;
@@ -153,17 +199,10 @@ export const ButtonPrimario = styled.button`
   color: ${mixins.colors.white};
      
 `
-export const ButtonSecundario = styled.button`
-  width: 250px;
-  height: 55px;
+export const ButtonSecundario = styled(ButtonPrimario)`
   background: ${mixins.colors.background};
-  border: 2px solid #004278;
-  border-radius: 0.5rem;
-  margin: 25px;
-  font-family: Poppins;
-  font-weight: 700;
-  font-size: 1rem;
-  
+  border: 0.125rem solid #004278;
+  margin-left: 0.875rem;
   color: ${mixins.colors.secondary};
       
 `
@@ -176,7 +215,7 @@ export const Total = styled.div`
   }
   
   strong {
-    font-size: 28px;
-    margin-left: 5px;
+    font-size: 1.75rem;
+    margin-left: 0.313rem;
   }
 `;

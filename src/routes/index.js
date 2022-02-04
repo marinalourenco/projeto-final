@@ -12,6 +12,7 @@ function AppRoutes() {
         <Route path="/cart" element={<Cart />}/>
         <Route path="/profile" element={<Profile />}/>
         <Route path="/notfound" element={<NotFound />}/>
+        <Route path="/*" element={<NotFound/>} />
       </Routes>
   );
 }

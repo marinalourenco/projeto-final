@@ -5,13 +5,16 @@ import { useModal } from '../../hooks/useModal';
 
 export default function Shooping() { 
   const [ pokeCard, setPokeCard ] = useState([])
+  const [loading, setLoading] = useState(false)
   const [ currentPage, setCurrentPage ] = useState(1);
   const { handleOpenDetailModal } = useModal()
 
   useEffect(() => {
+    setLoading(true)
     api.get(`/products?_page=${currentPage}&_limit=12`)
     .then((newPokes) => setPokeCard((prevPoke) => [...prevPoke, ...newPokes.data]))
     .catch(err => console.log(err));
+    setLoading(false)
   }, [currentPage]);
 
   useEffect(() => {
@@ -30,7 +33,7 @@ export default function Shooping() {
     
   return (
     <>
-    {pokeCard.length>0?(      
+    {!loading?(      
       <Container>
         <Content>                  
           <Grid>
@@ -60,10 +63,11 @@ export default function Shooping() {
         <Container>
             <Content>
                   <Loading>
-                    <img src="http://a.top4top.net/p_1990j031.gif" alt="loading..." />
+                    <img src="http://a.top4top.net/p_1990j031.gif" alt="Loading"/>
                     <h2>Carregando...</h2>
                   </Loading>
             </Content>
+            <p id="sentinel"/>
           </Container>
       )}
     </>

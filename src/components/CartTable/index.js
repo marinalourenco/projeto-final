@@ -1,4 +1,4 @@
-import { Container, Content, Title, ButtonPrimario, ButtonSecundario, DivCompra, ContainerCepCompra } from './styles';
+import { Container, Content, Title, ButtonPrimario, ButtonSecundario, DivCompra, ContainerCepCompra, DivBotoes } from './styles';
 import Table from 'react-bootstrap/Table'
 import { formatPrice } from '../../utils/format';
 import { useCart } from '../../hooks/useCart';
@@ -54,13 +54,14 @@ const CartTable = () => {
             <Container>
                 <Title>Carrinho de Compras</Title>
                 <Content>
-                    <Table>
+                    <table>
                         <thead>
                             <tr>
                                 <th><h3>Produto</h3></th>
-                                <th><h3>Valor Unitário</h3></th>
+                                <th><h3>V. Unitário</h3></th>
                                 <th><h3>Quantidade</h3></th>
                                 <th><h3>Sub-total</h3></th>
+                                <th><h3>Excluir</h3></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -82,7 +83,7 @@ const CartTable = () => {
                                                 disabled={product.amount <= 1}
                                                 onClick={() => handleProductDecrement(product)}
                                             >
-                                                <MdRemoveCircleOutline size={20} />
+                                                <MdRemoveCircleOutline size={24} />
                                             </button>
                                             <input
                                                 type="text"
@@ -96,7 +97,7 @@ const CartTable = () => {
                                                 data-testid="increment-product"
                                                 onClick={() => handleProductIncrement(product)}
                                             >
-                                                <MdAddCircleOutline size={20} />
+                                                <MdAddCircleOutline size={24} />
                                             </button>
                                         </div>
                                     </td>
@@ -114,12 +115,13 @@ const CartTable = () => {
                                 </tr>
                                 ))}  
                         </tbody>
-                    </Table>
+                    </table>
                 </Content>
-                    <ButtonPrimario onClick={() => navigate("/")} >Continuar Comprando</ButtonPrimario>
-                    <ButtonSecundario onClick={removeAllProduct} >Cancelar Compra</ButtonSecundario>
+                    <DivBotoes>
+                        <ButtonPrimario onClick={() => navigate("/")} >Continuar Comprando</ButtonPrimario>
+                        <ButtonSecundario onClick={removeAllProduct} >Cancelar Compra</ButtonSecundario>
+                    </DivBotoes>
                     <ContainerCepCompra>
-                        
                         <DivCompra>
                             <h3>valor total: {total}</h3>
                             <button onClick={handleOpenCompleteModal} disabled={cartFormatted.length < 1 }>Finalizar Compra</button>

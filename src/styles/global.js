@@ -21,7 +21,6 @@ export const GlobalStyle = createGlobalStyle`
     }
   }
   body, input, textarea {
-    padding-top: 100px;
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
   }
