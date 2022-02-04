@@ -1,51 +1,45 @@
 import {FaFacebookSquare, FaInstagramSquare, FaTwitterSquare, FaYoutubeSquare} from 'react-icons/fa';
-import {
-	Container,
-	Content,
-	Column,
-	FooterLink,
-	Title,
-} from "./styles";
+import * as S from "./styles";
 
 export const Footer = () => {
 	return (
-		<Container>
-			<Content>
-				<Column>
-					<Title>Sobre</Title>
-					<FooterLink href="#">A Pokemon Store</FooterLink>
-					<FooterLink href="#">Missão</FooterLink>
-					<FooterLink href="#">Visão</FooterLink>
-				</Column>
-				<Column>
-					<Title>Produtos</Title>
-					<FooterLink href="#">Pokémons</FooterLink>
-					<FooterLink href="#">Pedras Evolucionárias</FooterLink>
-					<FooterLink href="#">Medicina</FooterLink>
-					<FooterLink href="#">Poké Bolas</FooterLink>
-				</Column>
-				<Column>
-					<Title>Contato</Title>
-					<FooterLink href="#">(99) 99999-9999</FooterLink>
-					<FooterLink href="#">contato@pokemonstore.com</FooterLink>
-					<FooterLink href="#">Avenida Arceus, nº 111, Saffron, Kanto.</FooterLink>
-				</Column>
-				<Column>
-					<Title>Social Media</Title>
-					<FooterLink href="#">
+		<S.Container>
+			<S.Content>
+				<S.Column>
+					<S.Title>Sobre</S.Title>
+					<S.FooterLink href="#">A Pokemon Store</S.FooterLink>
+					<S.FooterLink href="#">Missão</S.FooterLink>
+					<S.FooterLink href="#">Visão</S.FooterLink>
+				</S.Column>
+				<S.Column>
+					<S.Title>Produtos</S.Title>
+					<S.FooterLink href="#">Pokémons</S.FooterLink>
+					<S.FooterLink href="#">Pedras Evolucionárias</S.FooterLink>
+					<S.FooterLink href="#">Medicina</S.FooterLink>
+					<S.FooterLink href="#">Poké Bolas</S.FooterLink>
+				</S.Column>
+				<S.Column>
+					<S.Title>Contato</S.Title>
+					<S.FooterLink href="#">(99) 99999-9999</S.FooterLink>
+					<S.FooterLink href="#">contato@pokemonstore.com</S.FooterLink>
+					<S.FooterLink href="#">Avenida Arceus, nº 111, Saffron, Kanto.</S.FooterLink>
+				</S.Column>
+				<S.Column>
+					<S.Title>Social Media</S.Title>
+					<S.FooterLink href="#">
 						<FaFacebookSquare />&ensp;Facebook			
-					</FooterLink>
-					<FooterLink href="#">
+					</S.FooterLink>
+					<S.FooterLink href="#">
 						<FaInstagramSquare />&ensp;Instagram			
-					</FooterLink>
-					<FooterLink href="#">
+					</S.FooterLink>
+					<S.FooterLink href="#">
 						<FaTwitterSquare />&ensp;Twitter			
-					</FooterLink>
-					<FooterLink href="#">
+					</S.FooterLink>
+					<S.FooterLink href="#">
 						<FaYoutubeSquare />&ensp;Youtube			
-					</FooterLink>
-				</Column>
-			</Content>
-		</Container>
+					</S.FooterLink>
+				</S.Column>
+			</S.Content>
+		</S.Container>
 	);
 };
