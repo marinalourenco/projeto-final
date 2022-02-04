@@ -27,7 +27,9 @@ export function CartProvider({ children }) {
         if(stock.amount > 0) {
           setCart([...cart, {...product, amount: 1}])
           localStorage.setItem('@PokeMercadoLivre:cart', JSON.stringify([...cart, {...product, amount: 1}]))
-          toast('Adicionado')
+          toast('Produto adicionado',{
+            position: toast.POSITION.BOTTOM_CENTER
+          })
           return;
         }
       }
@@ -43,11 +45,15 @@ export function CartProvider({ children }) {
           localStorage.setItem('@PokeMercadoLivre:cart', JSON.stringify(updatedCart))
           return;
         } else {
-          toast.error('Quantidade solicitada fora de estoque')
+          toast.error('Quantidade solicitada fora de estoque',{
+            position: toast.POSITION.BOTTOM_CENTER
+          })
         }
       }
     } catch {
-      toast.error('Erro na adição do produto')
+      toast.error('Erro na adição do produto',{
+        position: toast.POSITION.BOTTOM_CENTER
+      })
     }
   };
 
@@ -55,16 +61,22 @@ export function CartProvider({ children }) {
     try {
       const productExists = cart.some(cartProduct => cartProduct.id === productId)
       if(!productExists) {
-        toast.error('Erro na remoção do produto');
+        toast.error('Erro na remoção do produto',{
+          position: toast.POSITION.BOTTOM_CENTER
+        })
         return
       }
 
       const updatedCart = cart.filter(cartItem => cartItem.id !== productId)
       setCart(updatedCart)
       localStorage.setItem('@PokeMercadoLivre:cart', JSON.stringify(updatedCart))
-      toast("produtos removido com sucesso");
+      toast("produtos removido com sucesso",{
+        position: toast.POSITION.BOTTOM_CENTER
+      })
     } catch {
-      toast.error('Erro na remoção do produto');
+      toast.error('Erro na remoção do produto',{
+        position: toast.POSITION.BOTTOM_CENTER
+      })
     }
   };
 
@@ -73,16 +85,22 @@ export function CartProvider({ children }) {
       setCart([])
       localStorage.setItem('@PokeMercadoLivre:cart', JSON.stringify([]))
       navigate("/")
-      toast('Todos os produtos foram removidos');
+      toast('Todos os produtos foram removidos',{
+        position: toast.POSITION.BOTTOM_CENTER
+      })
     } catch {
-      toast.error('Erro na remoção do produto');
+      toast.error('Erro na remoção do produto',{
+        position: toast.POSITION.BOTTOM_CENTER
+      })
     }
   };
 
   const updateProductAmount = async ({ productId, amount}) => {
     try {
       if(amount < 1){
-        toast.error('Erro na alteração de quantidade do produto');
+        toast.error('Erro na alteração de quantidade do produto',{
+          position: toast.POSITION.BOTTOM_CENTER
+        })
         return
       }
 
@@ -91,13 +109,17 @@ export function CartProvider({ children }) {
       const stockIsFree = amount > productAmount
 
       if(stockIsFree) {
-        toast.error('Quantidade solicitada fora de estoque')
+        toast.error('Quantidade solicitada fora de estoque',{
+          position: toast.POSITION.BOTTOM_CENTER
+        })
         return
       }
 
       const productExists = cart.some(cartProduct => cartProduct.id === productId)
       if(!productExists) {
-        toast.error('Erro na alteração de quantidade do produto');
+        toast.error('Erro na alteração de quantidade do produto',{
+          position: toast.POSITION.BOTTOM_CENTER
+        })
         return
       }
 
@@ -108,7 +130,9 @@ export function CartProvider({ children }) {
       setCart(updatedCart)
       localStorage.setItem('@PokeMercadoLivre:cart', JSON.stringify(updatedCart))
     } catch {
-      toast.error('Erro na alteração de quantidade do produto');
+      toast.error('Erro na alteração de quantidade do produto',{
+        position: toast.POSITION.BOTTOM_CENTER
+      })
     }
   };
 

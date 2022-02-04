@@ -10,7 +10,7 @@ export function AuthProvider ({ children }){
   const [auth, setAuth] = useState(() => {
     const token = sessionStorage.getItem('@PokeMercadoLivre:login');
     if (token) {
-      setAuth(token);
+      setAuth(token[0].email);
       return
     }
     return""
@@ -19,26 +19,35 @@ export function AuthProvider ({ children }){
   const signOut = useCallback(()=>{
     sessionStorage.removeItem('@PokeMercadoLivre:login')
     setAuth("");
+    toast.success("deslogado com sucesso",{
+      position: toast.POSITION.BOTTOM_CENTER
+    })
   },[]);
 
   const signIn = useCallback(async ({email, password}) => {
     console.log(email, password)
     try {
       if(!email || !password) {
-          toast.error('Login ou senha inválidos')
+          toast.error('Login ou senha inválidos',{
+            position: toast.POSITION.BOTTOM_CENTER
+          })
           return 
      }
       
       const { data: user } = await api.get(`/users?email=${email}`)
-      console.log(user)
       if(user.length === 0 || password !== user[0].password) {
-          toast.error('Login ou senha inválidos')
+          toast.error('Login ou senha inválidos',{
+            position: toast.POSITION.BOTTOM_CENTER
+          })
           return 
       }
 
       setAuth(user[0].email);
       sessionStorage.setItem('@PokeMercadoLivre:login', user[0].email)
       api.defaults.headers.Authorization = `Bearer ${user[0].email}`; 
+      toast.success("logado com sucesso",{
+        position: toast.POSITION.BOTTOM_CENTER
+      })
     } catch (error) {
         toast.error(error)
         return 
@@ -57,13 +66,20 @@ export function AuthProvider ({ children }){
   },[auth]); */
 
  const createRegister = useCallback(async (registeriInput) => {
+   
             try {
-              const { data: user } = await api.post('/users', registeriInput)    
-              setAuth(user.email);
-              sessionStorage.setItem('@PokeMercadoLivre:login', user.email)
-              api.defaults.headers.Authorization = `Bearer ${user.email}`; 
+              console.log(registeriInput)
+              await api.post('/users', registeriInput);    
+              setAuth((registeriInput.email));
+              sessionStorage.setItem('@PokeMercadoLivre:login', (registeriInput.email))
+              api.defaults.headers.Authorization = `Bearer ${(registeriInput.email)}`; 
+              toast.success("logado com sucesso",{
+                position: toast.POSITION.BOTTOM_CENTER
+              })
             } catch (error) {  
-              toast.error("Erro ao cadastrar")
+              toast.error("Erro ao cadastrar usuario",{
+                position: toast.POSITION.BOTTOM_CENTER
+              })
               return
             }
     
@@ -72,8 +88,13 @@ export function AuthProvider ({ children }){
   const updateRegisters= useCallback(async (registeriUpdate) => {
           try {
             await api.put(`/users/${registeriUpdate.id}`, registeriUpdate)
+            toast.success("Atualizado com sucesso",{
+              position: toast.POSITION.BOTTOM_CENTER
+            })
           } catch (error) {
-            toast.error("Erro ao atualizar cadastro")
+            toast.error("Erro ao atualizar cadastro",{
+              position: toast.POSITION.BOTTOM_CENTER
+            })
             return
           }
     },[])

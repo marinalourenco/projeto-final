@@ -14,15 +14,15 @@ function FormRegister() {
           gender:"",
           origin:"",
           job:"",
-          emaill:"",
+          email:"",
           password:"",
         },
         onSubmit: async (values)=>{
          if(auth){
-                updateRegisters(values)
+                await updateRegisters(values)
               return
           }
-            createRegister(values)
+            await createRegister(values)
             return
         }
       })

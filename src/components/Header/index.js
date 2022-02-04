@@ -3,11 +3,13 @@ import { User } from './styles';
 import { useCart } from '../../hooks/useCart';
 import { useAuth } from '../../hooks/useAuth';
 import { useModal } from '../../hooks/useModal';
+import { useSearch } from '../../hooks/useSearch';
 import { Link, useNavigate } from 'react-router-dom';
 import Logo from "../../assets/logo.png"
 
 export function Header() {
     const navigate = useNavigate()
+    const { queryParams, handleSetQueryParams } = useSearch()
     const { cart } = useCart();
     const { auth, signOut } = useAuth();
     const { handleOpenLoginModal } = useModal();
@@ -22,7 +24,7 @@ export function Header() {
             <img src={Logo} alt="pokestore" />
             </Link>
             <label>
-              <input type="text" placeholder="Pesquisar" />
+              <input type="text" placeholder="Pesquisar" value={queryParams} onChange={handleSetQueryParams} />
             </label>
           </div>
           

@@ -2,17 +2,35 @@ import { Card, Container, Content, Grid, Loading } from './styles';
 import { useEffect, useState } from 'react';
 import { api } from '../../services/api';
 import { useModal } from '../../hooks/useModal';
+import { useSearch } from '../../hooks/useSearch';
 
 export default function Shooping() { 
   const [ pokeCard, setPokeCard ] = useState([])
+  const [ pokeCardFiltered, setPokeCardFiltered ] = useState([])
   const [loading, setLoading] = useState(false)
   const [ currentPage, setCurrentPage ] = useState(1);
   const { handleOpenDetailModal } = useModal()
+  const { queryParams } = useSearch()
+  let cardPoke = queryParams? pokeCardFiltered: pokeCard;
+  useEffect(() => {
+    setLoading(true)
+    if(queryParams){
+      console.log(queryParams)
+      api.get("/products")
+      .then((newPokes) => {
+        console.log(newPokes)
+        setPokeCardFiltered(newPokes.data.filter(poke => poke.name.toUpperCase().includes(queryParams.toUpperCase())))
+      })
+      .catch(err => console.log(err));
+    }
+    setLoading(false)
+  }, [queryParams]);
 
   useEffect(() => {
     setLoading(true)
     api.get(`/products?_page=${currentPage}&_limit=12`)
-    .then((newPokes) => setPokeCard((prevPoke) => [...prevPoke, ...newPokes.data]))
+    .then(
+      (newPokes) => setPokeCard((prevPoke) => [...prevPoke, ...newPokes.data]))
     .catch(err => console.log(err));
     setLoading(false)
   }, [currentPage]);
@@ -37,7 +55,7 @@ export default function Shooping() {
       <Container>
         <Content>                  
           <Grid>
-          {pokeCard.map(pokecard => (
+          {cardPoke.map(pokecard => (
             <Card key={pokecard.id} onClick={() => handleOpenDetailModal(pokecard)}>
               <div className="img">
                 <img src={`images/${pokecard.id}.gif`} alt={pokecard.name} />
