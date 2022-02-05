@@ -26,11 +26,21 @@ export default function Shooping() {
     cardPoke = pokeCardFiltered
   }
 
+  useEffect(() => {
+    setLoading(true)
+      api.get("/products")
+      .then((newPokes) => {
+        console.log(newPokes)
+        setPokeCardFiltered(newPokes.data.filter(poke => poke.name.toUpperCase().includes(queryParams.toUpperCase())))
+      })
+      .catch(err => console.log(err));
+    setLoading(false)
+     // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     setLoading(true)
     if(queryParams){
-      console.log(queryParams)
       api.get("/products")
       .then((newPokes) => {
         console.log(newPokes)
