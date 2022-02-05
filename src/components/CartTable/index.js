@@ -51,7 +51,7 @@ const CartTable = () => {
     return (
         <>
             <S.Container>
-                <S.Title>Carrinho de Compras</S.Title>
+                <S.Title> Carrinho de Compras</S.Title>
                 <S.Content>
                     <table>
                         <thead>

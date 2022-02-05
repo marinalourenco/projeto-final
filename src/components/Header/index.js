@@ -35,17 +35,22 @@ export function Header() {
                 onClick={handleOpenLoginModal}
               >
                 Login
+
               </button> ou <button type="button" onClick={() => navigate("/profile")}>
                 Cadastre-se
               </button>
             </div>
             ):(
               <div className="user">
-              <FaUser className="FaUser"/> Edite o seu 
+              <FaUser className="FaUser"/>  
+              
+              &#160; Edite o seu  &#160;
+
               <button type="button" 
                 onClick={() => navigate("/profile")}
               >
-                Perfil
+                Perfil 
+
               </button> ou prefere <button type="button" onClick={signOut}>
                 Sair
               </button>
@@ -53,7 +58,7 @@ export function Header() {
             )}
   
             <span className="car">
-            <Link className="cart" to="/cart"> <FaShoppingCart  className="ShopCar"/> {` Seu carrinho tem`} <p className="shop">{cartSize === 1 ? `${cartSize} item` : `${cartSize} itens`}</p></Link>
+            <Link className="cart" to="/cart"> <FaShoppingCart  className="ShopCar"/> &#160; { ` Seu carrinho tem`} <p className="shop">{cartSize === 1 ? `${cartSize} item` : `${cartSize} itens`}</p></Link>
             </span>
           </div>
           
