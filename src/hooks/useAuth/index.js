@@ -98,7 +98,7 @@ export function AuthProvider ({ children }){
             })
             return
           }
-    },[])
+    },[profile.id])
 
   //useEffect(()=>{
     //console.log(auth)
