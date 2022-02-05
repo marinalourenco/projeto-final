@@ -2,23 +2,17 @@ import { createContext,  useState,  useCallback, useContext } from 'react';
 import { toast } from 'react-toastify';
 import { api } from '../../services/api'
 
-
+const token = sessionStorage.getItem('@PokeMercadoLivre:login');
 export const AuthContext = createContext({});
 
 export function AuthProvider ({ children }){
-  //const [profile, setProfile] = useState({});
-  const [auth, setAuth] = useState(() => {
-    const token = sessionStorage.getItem('@PokeMercadoLivre:login');
-    if (token) {
-      setAuth(token[0].email);
-      return
-    }
-    return""
-  });
+  const [profile, setProfile] = useState({});
+  const [auth, setAuth] = useState(token ? token[0]?.email: "");
   
   const signOut = useCallback(()=>{
     sessionStorage.removeItem('@PokeMercadoLivre:login')
     setAuth("");
+    setProfile({})
     toast.success("deslogado com sucesso",{
       position: toast.POSITION.BOTTOM_CENTER
     })
@@ -41,7 +35,7 @@ export function AuthProvider ({ children }){
           })
           return 
       }
-
+      setProfile(user[0]);
       setAuth(user[0].email);
       sessionStorage.setItem('@PokeMercadoLivre:login', user[0].email)
       api.defaults.headers.Authorization = `Bearer ${user[0].email}`; 
@@ -68,7 +62,6 @@ export function AuthProvider ({ children }){
  const createRegister = useCallback(async (registeriInput) => {
    
             try {
-              console.log(registeriInput)
               await api.post('/users', registeriInput);    
               setAuth((registeriInput.email));
               sessionStorage.setItem('@PokeMercadoLivre:login', (registeriInput.email))
@@ -87,7 +80,15 @@ export function AuthProvider ({ children }){
 
   const updateRegisters= useCallback(async (registeriUpdate) => {
           try {
-            await api.put(`/users/${registeriUpdate.id}`, registeriUpdate)
+            if(!profile.id) {
+              toast.error("Erro ao atualizar cadastro",{
+                position: toast.POSITION.BOTTOM_CENTER
+              })
+              return
+            }
+            const profileUpdate = {...registeriUpdate, id: profile.id};
+
+            await api.put(`/users/${profileUpdate.id}`, profileUpdate)
             toast.success("Atualizado com sucesso",{
               position: toast.POSITION.BOTTOM_CENTER
             })
@@ -114,7 +115,7 @@ export function AuthProvider ({ children }){
         updateRegisters,
         signIn,
         signOut,
- //       profile,
+        profile,
       }}
     >
           {children}

@@ -4,6 +4,7 @@ import {genders} from '../../utils/gender'
 import { useAuth } from '../../hooks/useAuth'
 import { useFormik } from "formik"
 import * as yup from 'yup';
+import {useNavigate} from 'react-router-dom';
 
 const validationSchema = yup.object().shape({
     name: yup.string().required('Nome é obrigatório'),
@@ -15,16 +16,19 @@ const validationSchema = yup.object().shape({
   });
 
 function FormRegister() {
-    const { auth, createRegister, updateRegisters, } = useAuth()
+    const { auth, createRegister, updateRegisters, profile } = useAuth()
+    const navigate = useNavigate();
+
+    const returnToHome = ()=>{navigate("/")}
 
     const formik = useFormik({
         initialValues:{
-          name:"",
-          gender:"",
-          origin:"",
-          job:"",
-          email:"",
-          password:"",
+          name: profile.name ?? "",
+          gender: profile.gender ?? "",
+          origin: profile.origin ?? "",
+          job: profile.job ?? "",
+          email: profile.email ?? "",
+          password: profile.password ?? "",
         },
         validationSchema,
         onSubmit: async (values)=>{
@@ -60,11 +64,12 @@ function FormRegister() {
                         <Select 
                             id="gender" 
                             name="gender" 
+                            width="16em"
                             required 
                             onChange={formik.handleChange}
                             value={formik.values.gender}
                         >
-                            <option key={0} value={""}>Qual gênero você se identifica?</option>
+                            <option key={0} value={""}>Qual seu gênero?</option>
                             {
                                 genders.map((item, index) => (
                                     <option key={index+1} value={item.genero}>{item.genero}</option>
@@ -79,6 +84,7 @@ function FormRegister() {
                         <Select 
                             id="origin" 
                             name="origin"
+                            width="14em"
                             required 
                             onChange={formik.handleChange}
                             value={formik.values.origin}
@@ -138,7 +144,7 @@ function FormRegister() {
                     <p>{(formik.errors.password && formik.touched.password) && <span>{formik.errors.password}</span>}</p>
                 <Row>
                     <Button type="submit" isLight >SALVAR</Button>
-                    <Button onClick={()=>{}}>CANCELAR</Button>
+                    <Button onClick={returnToHome}>CANCELAR</Button>
                 </Row>
             </Form>
        </Container>
