@@ -49,6 +49,8 @@ function FormRegister() {
                              id="name"
                              name="name"
                              type="text"
+                             required
+                             placeholder="Digite seu nome"
                              onChange={formik.handleChange}
                              value={formik.values.name}
                         />
@@ -95,6 +97,8 @@ function FormRegister() {
                              id="job"
                              name="job"
                              type="text"
+                             required
+                             placeholder="Digite sua função"
                              onChange={formik.handleChange}
                              value={formik.values.job}
                         />
@@ -107,6 +111,8 @@ function FormRegister() {
                              id="email"
                              name="email"
                              type="email"
+                             required
+                             placeholder="Digite seu email"
                              onChange={formik.handleChange}
                              value={formik.values.email}
                         />
@@ -117,6 +123,8 @@ function FormRegister() {
                              id="password"
                              name="password"
                              type="password"
+                             required
+                             placeholder="Digite sua senha"
                              onChange={formik.handleChange}
                              value={formik.values.password}
                         />
