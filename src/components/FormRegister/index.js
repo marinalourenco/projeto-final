@@ -50,7 +50,7 @@ function FormRegister() {
                              name="name"
                              type="text"
                              required
-                             placeholder="Digite seu nome"
+                             placeholder="Digite aqui seu nome"
                              onChange={formik.handleChange}
                              value={formik.values.name}
                         />
@@ -98,7 +98,7 @@ function FormRegister() {
                              name="job"
                              type="text"
                              required
-                             placeholder="Digite sua função"
+                             placeholder="Digite aqui sua função"
                              onChange={formik.handleChange}
                              value={formik.values.job}
                         />
@@ -112,7 +112,7 @@ function FormRegister() {
                              name="email"
                              type="email"
                              required
-                             placeholder="Digite seu email"
+                             placeholder="Digite aqui seu email"
                              onChange={formik.handleChange}
                              value={formik.values.email}
                         />
