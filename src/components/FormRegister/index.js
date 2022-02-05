@@ -3,7 +3,16 @@ import {countries} from '../../utils/countries'
 import {genders} from '../../utils/gender'
 import { useAuth } from '../../hooks/useAuth'
 import { useFormik } from "formik"
+import * as yup from 'yup';
 
+const validationSchema = yup.object().shape({
+    name: yup.string().required('Nome é obrigatório'),
+    gender:yup.string().required('Escolha um valor'),
+    origin:yup.string().required('Escolha um valor'),
+    job: yup.string().required('Escolha um valor'),
+    email: yup.string().email('Informe um email válido').required('Login é obrigatório'),
+    password: yup.string().min(8).required('Senha é obrigatório')
+  });
 
 function FormRegister() {
     const { auth, createRegister, updateRegisters, } = useAuth()
@@ -17,6 +26,7 @@ function FormRegister() {
           email:"",
           password:"",
         },
+        validationSchema,
         onSubmit: async (values)=>{
          if(auth){
                 await updateRegisters(values)
@@ -41,7 +51,6 @@ function FormRegister() {
                              type="text"
                              onChange={formik.handleChange}
                              value={formik.values.name}
-                             required
                         />
                     </Column>
                     <Column alignSelf="flex-end">
@@ -53,9 +62,10 @@ function FormRegister() {
                             onChange={formik.handleChange}
                             value={formik.values.gender}
                         >
+                            <option key={0} value={""}>Qual gênero você se identifica?</option>
                             {
                                 genders.map((item, index) => (
-                                    <option key={index} value={item.genero}>{item.genero}</option>
+                                    <option key={index+1} value={item.genero}>{item.genero}</option>
                                 ))
                             }
                         </Select>
@@ -71,6 +81,7 @@ function FormRegister() {
                             onChange={formik.handleChange}
                             value={formik.values.origin}
                         >
+                            <option key={0} value={""}>De onde você vem?</option>
                             {
                                countries.map((item, index) => (
                                 <option key={index} value={item.nome_pais}>{item.nome_pais}</option>
@@ -86,7 +97,6 @@ function FormRegister() {
                              type="text"
                              onChange={formik.handleChange}
                              value={formik.values.job}
-                             required
                         />
                     </Column>
                 </Row>
@@ -99,7 +109,6 @@ function FormRegister() {
                              type="email"
                              onChange={formik.handleChange}
                              value={formik.values.email}
-                             required
                         />
                     </Column>
                     <Column >
@@ -110,12 +119,15 @@ function FormRegister() {
                              type="password"
                              onChange={formik.handleChange}
                              value={formik.values.password}
-                             required
                         />
                     </Column>
                 </Row>
-                    <p>{formik.errors.email && <span>{formik.errors.email}</span>}</p>
-                    <p>{formik.errors.password && <span>{formik.errors.password}</span>}</p>
+                    <p>{(formik.errors.name && formik.touched.name) && <span>{formik.errors.name}</span>}</p>
+                    <p>{(formik.errors.gender && formik.touched.gender) && <span>{formik.errors.gender}</span>}</p>
+                    <p>{(formik.errors.origin && formik.touched.origin) && <span>{formik.errors.origin}</span>}</p>
+                    <p>{(formik.errors.job && formik.touched.job) && <span>{formik.errors.job}</span>}</p>
+                    <p>{(formik.errors.email && formik.touched.email) && <span>{formik.errors.email}</span>}</p>
+                    <p>{(formik.errors.password && formik.touched.password) && <span>{formik.errors.password}</span>}</p>
                 <Row>
                     <Button type="submit" isLight >SALVAR</Button>
                     <Button onClick={()=>{}}>CANCELAR</Button>

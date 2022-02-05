@@ -10,8 +10,23 @@ export default function Shooping() {
   const [loading, setLoading] = useState(false)
   const [ currentPage, setCurrentPage ] = useState(1);
   const { handleOpenDetailModal } = useModal()
-  const { queryParams } = useSearch()
-  let cardPoke = queryParams? pokeCardFiltered: pokeCard;
+  const { queryParams, typePokemon } = useSearch()
+  
+  let cardPoke = pokeCard;
+
+  if(queryParams && typePokemon){
+    cardPoke = pokeCardFiltered.filter(poke => typePokemon === poke.type.tp1 || typePokemon === poke.type.tp2)
+  }
+
+  if(!queryParams && typePokemon){
+    cardPoke = pokeCard.filter(poke => typePokemon === poke.type.tp1 || typePokemon === poke.type.tp2)
+  }
+
+  if(queryParams && !typePokemon){
+    cardPoke = pokeCardFiltered
+  }
+
+
   useEffect(() => {
     setLoading(true)
     if(queryParams){

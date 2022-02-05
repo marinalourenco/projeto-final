@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  position: absolute;
-  top: 6rem;
+  position: relative;
+  margin-top: 6.75rem;
   width: 100%;
   @media(max-width: 600px) {
-    top: 9.5rem;
+    margin-top: 9.75rem;
   }
 `

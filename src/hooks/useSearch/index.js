@@ -4,11 +4,15 @@ const ModalContext = createContext({});
 
 export function SearchProvider({ children }) {
  const [queryParams, setQueryParams] = useState("") 
+ const [typePokemon, setTypePokemon] = useState("") 
 
  const handleSetQueryParams = useCallback((search)=>{
-     console.log(search)
      setQueryParams(search.target.value)
  },[])
+
+ const handleChangeType = useCallback((type)=>{
+  setTypePokemon(pType => pType === type?"":type)
+},[])
  
  
   return (
@@ -16,6 +20,8 @@ export function SearchProvider({ children }) {
       value={{ 
           queryParams, 
           handleSetQueryParams, 
+          typePokemon,
+          handleChangeType,
         }}
     >
       { children }

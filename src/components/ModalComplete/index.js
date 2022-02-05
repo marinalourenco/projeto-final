@@ -3,7 +3,6 @@ import { GrClose } from 'react-icons/gr'
 import { Container } from './styles';
 import { useModal } from '../../hooks/useModal';
 
-
 export default function ModalComplete() {
   
   const { completeModal, handleCloseCompleteModal } = useModal()

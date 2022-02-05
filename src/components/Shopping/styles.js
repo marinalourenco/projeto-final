@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { mixins } from "../../styles/mixins"
 
 export const Container = styled.div`
-  margin-top: 18.75rem;
   background: ${mixins.colors.background};
   
   margin-bottom: 2.5rem;
@@ -11,9 +10,7 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  @media(max-width: 900px) {
-    margin-top: 12rem;
-  }
+
 `
 
 export const Loading = styled.div`
@@ -59,8 +56,7 @@ export const Content = styled.div`
 `
 
 export const Grid = styled.div`
-  
-  margin: 20px;
+
   display: grid;
   grid-template-columns: repeat(4, 20rem);
   grid-column-gap: 1.5rem;
