@@ -13,7 +13,7 @@ export function AuthProvider ({ children }){
     sessionStorage.removeItem('@PokeMercadoLivre:login')
     setAuth("");
     setProfile({})
-    toast.success("deslogado com sucesso",{
+    toast.success("Deslogado com sucesso",{
       position: toast.POSITION.BOTTOM_CENTER
     })
   },[]);
@@ -39,7 +39,7 @@ export function AuthProvider ({ children }){
       setAuth(user[0].email);
       sessionStorage.setItem('@PokeMercadoLivre:login', user[0].email)
       api.defaults.headers.Authorization = `Bearer ${user[0].email}`; 
-      toast.success("logado com sucesso",{
+      toast.success("Logado com sucesso",{
         position: toast.POSITION.BOTTOM_CENTER
       })
     } catch (error) {
@@ -66,7 +66,7 @@ export function AuthProvider ({ children }){
               setAuth((registeriInput.email));
               sessionStorage.setItem('@PokeMercadoLivre:login', (registeriInput.email))
               api.defaults.headers.Authorization = `Bearer ${(registeriInput.email)}`; 
-              toast.success("logado com sucesso",{
+              toast.success("Cadastrado com sucesso",{
                 position: toast.POSITION.BOTTOM_CENTER
               })
             } catch (error) {  
