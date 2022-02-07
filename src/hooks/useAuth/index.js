@@ -60,12 +60,13 @@ export function AuthProvider ({ children }){
   },[auth]); */
 
  const createRegister = useCallback(async (registeriInput) => {
-   
             try {
               await api.post('/users', registeriInput);    
               setAuth((registeriInput.email));
               sessionStorage.setItem('@PokeMercadoLivre:login', (registeriInput.email))
               api.defaults.headers.Authorization = `Bearer ${(registeriInput.email)}`; 
+              const { data: user } = await api.get(`/users?email=${registeriInput.email}`)
+              setProfile(user[0]);
               toast.success("Cadastrado com sucesso",{
                 position: toast.POSITION.BOTTOM_CENTER
               })
@@ -75,7 +76,6 @@ export function AuthProvider ({ children }){
               })
               return
             }
-    
   },[])
 
   const updateRegisters= useCallback(async (registeriUpdate) => {
@@ -89,6 +89,8 @@ export function AuthProvider ({ children }){
             const profileUpdate = {...registeriUpdate, id: profile.id};
 
             await api.put(`/users/${profileUpdate.id}`, profileUpdate)
+            const { data: user } = await api.get(`/users?email=${profileUpdate.email}`)
+            setProfile(user[0]);
             toast.success("Atualizado com sucesso",{
               position: toast.POSITION.BOTTOM_CENTER
             })

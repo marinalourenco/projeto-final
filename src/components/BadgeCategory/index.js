@@ -64,6 +64,16 @@ function BadgeCategory() {
             onClick={() => handleChangeType("Terra")} 
             variant="danger">Terra
         </Button>
+        <Button 
+            checked={true} 
+            onClick={() => handleChangeType("Venenoso")} 
+            variant="success">Venenoso
+        </Button> 
+        <Button 
+            checked={true} 
+            onClick={() => handleChangeType("Voador")} 
+            variant="outline-secondary" text="dark">Voador
+        </Button>
     </Container>
   );
 }
