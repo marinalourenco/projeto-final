@@ -14,7 +14,8 @@
 ## :fire: Prévia da Aplicação
 
 <div align="center">
-    <video src="./images/projeto.mp4" type="video/mp4"></video>
+<a href="https://polite-pebble-04afb8010.1.azurestaticapps.net/"> :fire: Frontend</a> |
+<a href="http://pokestoreaccapi.azurewebsites.net//"> :fire: Backend</a> |
 </div>
 
 ### :rocket: Tecnologias Usadas
